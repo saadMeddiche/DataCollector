@@ -1,11 +1,11 @@
-package org.data.datacollector.dataExtractor.dataHolders.dataFromSimu;
+package org.data.datacollector.dataExtractors.dataHolders.dataFromSimu;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.data.datacollector.dataExtractor.global.ButeeData;
+import org.data.datacollector.dataExtractors.global.ButeeData;
 
 import java.util.Date;
 import java.util.List;

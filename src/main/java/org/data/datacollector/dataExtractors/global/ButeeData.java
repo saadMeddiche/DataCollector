@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractor.global;
+package org.data.datacollector.dataExtractors.global;
 
 import java.lang.reflect.Field;
 import java.util.Date;
