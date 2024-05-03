@@ -33,6 +33,8 @@ public class ButeeDataCombinator {
 
         buteeList.addAll(generateCRMButee());
 
+        buteeList.addAll(generateELPButee());
+
         return attachUserIdToButee(buteeList , dataExtractor.extractEmployeeNumberAndUserId());
     }
 
@@ -66,6 +68,10 @@ public class ButeeDataCombinator {
         return generateButee(dataExtractor.extractButeeCRM(), "HF");
     }
 
+    // Butte with jeppesenCode = EA
+    private List<Butee> generateELPButee(){
+        return generateButee(dataExtractor.extractButeeELP(), "EA");
+    }
     private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
        return buteeList.stream().peek(butee -> employeeNumberAndUserIdList.stream()
                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getEmployeeNumber()))

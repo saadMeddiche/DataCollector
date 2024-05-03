@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromCRM.ButeeCRM;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromCtrlEL.ButeeCtrlEL;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromDG.ButeeDG;
+import org.data.datacollector.dataExtractor.dataHolders.dataFromELP.ButeeELP;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSC.ButeeSC;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSS.ButeeSS;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSimu.ButeeSimu;
@@ -47,6 +48,10 @@ public class DataExtractor {
 
     public List<ButeeCRM> extractButeeCRM(){
         return extractData("CRM" , ButeeCRM.class);
+    }
+
+    public List<ButeeELP> extractButeeELP(){
+        return extractData("ELP" , ButeeELP.class);
     }
 
     private <O> List<O> extractData(String fileName , Class<O> dataHolderClass){
