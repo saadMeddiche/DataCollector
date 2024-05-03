@@ -18,7 +18,7 @@ public class Path {
     }
 
     public String getAbsolutePathOfCsv(String filename) {
-        return getAbsolutePathOf(filename , "results" , "csv");
+        return getAbsolutePathOf(filename , "results" , "csv").replace("target\\classes" , "src/main/resources");
     }
 
     private String getAbsolutePathOf(String filename, String folder , String extension) {

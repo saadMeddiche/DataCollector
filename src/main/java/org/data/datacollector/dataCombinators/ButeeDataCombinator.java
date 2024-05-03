@@ -19,20 +19,10 @@ public class ButeeDataCombinator {
     public List<Butee> getButeeList(){
         List<Butee> buteeList = new ArrayList<>();
 
-        buteeList.addAll(getCHLButee());
+        buteeList.addAll(generateCHLButee());
 
-        buteeList.addAll(getSCButee());
+        buteeList.addAll(generateSCButee());
 
-        return buteeList;
-    }
-
-    private List<Butee> getCHLButee(){
-        List<Butee> buteeList = generateCHLButee();
-        return attachUserIdToButee(buteeList , dataExtractor.employeeNumberAndUserIdList);
-    }
-
-    private List<Butee> getSCButee(){
-        List<Butee> buteeList = generateSCButee();
         return attachUserIdToButee(buteeList , dataExtractor.employeeNumberAndUserIdList);
     }
 
@@ -51,7 +41,7 @@ public class ButeeDataCombinator {
             employeeNumberAndUserIdList.stream()
                     .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getEmployeeNumber()))
                     .findFirst()
-                    .ifPresent(employeeNumberAndUserId -> butee.setId(employeeNumberAndUserId.getUserId()));
+                    .ifPresent(employeeNumberAndUserId -> butee.setUserIdFromDB(employeeNumberAndUserId.getUserId()));
         }).toList();
     }
 

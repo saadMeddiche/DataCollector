@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Butee {
 
-    private Long id;
+    private Long userIdFromDB;
 
     private Long employeeNumber;
 

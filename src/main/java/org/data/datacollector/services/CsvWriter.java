@@ -11,6 +11,8 @@ import java.util.stream.Stream;
 
 public class CsvWriter {
 
+    private static final String separator = ";";
+
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     public static <T> void writeCsv(List<T> data, String filename) {
@@ -51,7 +53,7 @@ public class CsvWriter {
     private static String getFieldNames(Field[] fields) {
         return Stream.of(fields)
                 .map(Field::getName)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(separator));
     }
 
     private static <T> String getFieldValues(Class<?> clazz, T obj) {
@@ -70,7 +72,7 @@ public class CsvWriter {
                         return "";
                     }
                 })
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(separator));
     }
 
 
@@ -80,7 +82,7 @@ public class CsvWriter {
             return DATE_FORMAT.format((Date) value);
         } else {
             String field = value.toString();
-            if (field.contains(",") || field.contains("\"") || field.contains("\n")) {
+            if (field.contains(separator) || field.contains("\"") || field.contains("\n")) {
                 return "\"" + field.replaceAll("\"", "\"\"") + "\"";
             } else {
                 return field;
