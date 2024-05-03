@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractor;
 
 import com.poiji.bind.Poiji;
+import org.data.datacollector.dataExtractor.dataHolders.dataFromCtrlEL.ButeeCtrlEL;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromDG.ButeeDG;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSC.ButeeSC;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSS.ButeeSS;
@@ -22,6 +23,7 @@ public class DataExtractor {
     public List<ButeeSC> buteeSCList;
     public List<ButeeDG> buteeDGList;
     public List<ButeeSS> buteeSSList;
+    public List<ButeeCtrlEL> buteeCtrlELList;
 
     DataExtractor(Path path){
         this.path = path;
@@ -30,6 +32,7 @@ public class DataExtractor {
         this.buteeSCList = extractButeeSC();
         this.buteeDGList = extractButeeDG();
         this.buteeSSList = extractButeeSS();
+        this.buteeCtrlELList = extractButeeCtrlEL();
     }
 
     private List<EmployeeNumberAndUserId> extractEmployeeNumberAndUserId(){
@@ -50,6 +53,10 @@ public class DataExtractor {
 
     private List<ButeeSS> extractButeeSS(){
         return extractData("SS" , ButeeSS.class);
+    }
+
+    private List<ButeeCtrlEL> extractButeeCtrlEL(){
+        return extractData("CTRL EL" , ButeeCtrlEL.class);
     }
 
     private <O> List<O> extractData(String fileName , Class<O> dataHolderClass){
