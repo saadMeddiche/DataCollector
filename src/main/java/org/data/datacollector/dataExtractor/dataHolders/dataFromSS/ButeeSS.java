@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractor.dataHolders.dataFromDG;
+package org.data.datacollector.dataExtractor.dataHolders.dataFromSS;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.AllArgsConstructor;
@@ -14,25 +14,25 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ButeeDG extends ButeeData {
+public class ButeeSS extends ButeeData {
 
     @ExcelCellName("MATR")
     private Long employeeNumber;
 
-    @ExcelCellName("Butée DG1")
+    @ExcelCellName(" Butée SS1")
     private String validityEnd1;
 
-    @ExcelCellName("Butée DG2")
+    @ExcelCellName(" Butée SS2")
     private String validityEnd2;
 
-    @ExcelCellName("Butée DG3")
+    @ExcelCellName(" Butée SS3")
     private String validityEnd3;
 
-    @ExcelCellName("Butée DG4")
+    @ExcelCellName(" Butée SS4")
     private String validityEnd4;
 
     @Override
     public List<Date> getValidityEnds(){
-        return getValidityEnds(4 , ButeeDG.class);
+        return getValidityEnds(4 , ButeeSS.class);
     }
 }

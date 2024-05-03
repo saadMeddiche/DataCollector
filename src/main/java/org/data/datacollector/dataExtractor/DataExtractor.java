@@ -3,6 +3,7 @@ package org.data.datacollector.dataExtractor;
 import com.poiji.bind.Poiji;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromDG.ButeeDG;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSC.ButeeSC;
+import org.data.datacollector.dataExtractor.dataHolders.dataFromSS.ButeeSS;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSimu.ButeeSimu;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
 import org.data.datacollector.services.Path;
@@ -20,6 +21,7 @@ public class DataExtractor {
     public List<ButeeSimu> buteeSimuList;
     public List<ButeeSC> buteeSCList;
     public List<ButeeDG> buteeDGList;
+    public List<ButeeSS> buteeSSList;
 
     DataExtractor(Path path){
         this.path = path;
@@ -27,6 +29,7 @@ public class DataExtractor {
         this.buteeSimuList = extractButeeSimu();
         this.buteeSCList = extractButeeSC();
         this.buteeDGList = extractButeeDG();
+        this.buteeSSList = extractButeeSS();
     }
 
     private List<EmployeeNumberAndUserId> extractEmployeeNumberAndUserId(){
@@ -43,6 +46,10 @@ public class DataExtractor {
 
     private List<ButeeSC> extractButeeSC(){
         return extractData("SC" , ButeeSC.class);
+    }
+
+    private List<ButeeSS> extractButeeSS(){
+        return extractData("SS" , ButeeSS.class);
     }
 
     private <O> List<O> extractData(String fileName , Class<O> dataHolderClass){
