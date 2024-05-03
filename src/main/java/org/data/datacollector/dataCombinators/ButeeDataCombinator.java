@@ -31,6 +31,8 @@ public class ButeeDataCombinator {
 
         buteeList.addAll(generateCtrlELButee());
 
+        buteeList.addAll(generateCRMButee());
+
         return attachUserIdToButee(buteeList , dataExtractor.employeeNumberAndUserIdList);
     }
 
@@ -57,6 +59,11 @@ public class ButeeDataCombinator {
     // Butee with jeppesenCode = CEL
     private List<Butee> generateCtrlELButee(){
         return generateButee(dataExtractor.buteeCtrlELList, "CEL");
+    }
+
+    // Butee with jeppesenCode = CRM
+    private List<Butee> generateCRMButee(){
+        return generateButee(dataExtractor.buteeCRMList, "HF");
     }
 
     private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){

@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractor;
 
 import com.poiji.bind.Poiji;
+import org.data.datacollector.dataExtractor.dataHolders.dataFromCRM.ButeeCRM;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromCtrlEL.ButeeCtrlEL;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromDG.ButeeDG;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSC.ButeeSC;
@@ -8,7 +9,6 @@ import org.data.datacollector.dataExtractor.dataHolders.dataFromSS.ButeeSS;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSimu.ButeeSimu;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
 import org.data.datacollector.services.Path;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -24,6 +24,7 @@ public class DataExtractor {
     public List<ButeeDG> buteeDGList;
     public List<ButeeSS> buteeSSList;
     public List<ButeeCtrlEL> buteeCtrlELList;
+    public List<ButeeCRM> buteeCRMList;
 
     DataExtractor(Path path){
         this.path = path;
@@ -33,6 +34,7 @@ public class DataExtractor {
         this.buteeDGList = extractButeeDG();
         this.buteeSSList = extractButeeSS();
         this.buteeCtrlELList = extractButeeCtrlEL();
+        this.buteeCRMList = extractButeeCRM();
     }
 
     private List<EmployeeNumberAndUserId> extractEmployeeNumberAndUserId(){
@@ -57,6 +59,10 @@ public class DataExtractor {
 
     private List<ButeeCtrlEL> extractButeeCtrlEL(){
         return extractData("CTRL EL" , ButeeCtrlEL.class);
+    }
+
+    private List<ButeeCRM> extractButeeCRM(){
+        return extractData("CRM" , ButeeCRM.class);
     }
 
     private <O> List<O> extractData(String fileName , Class<O> dataHolderClass){
