@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractor;
 
 import com.poiji.bind.Poiji;
+import org.data.datacollector.dataExtractor.dataHolders.dataFromDG.ButeeDG;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSC.ButeeSC;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromSimu.ButeeSimu;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
@@ -14,23 +15,26 @@ import java.util.List;
 @Component
 public class DataExtractor {
 
-    private final ResourceLoader resourceLoader;
-
     private final Path path;
-    public List<ButeeSimu> buteeSimuList;
     public List<EmployeeNumberAndUserId> employeeNumberAndUserIdList;
+    public List<ButeeSimu> buteeSimuList;
     public List<ButeeSC> buteeSCList;
+    public List<ButeeDG> buteeDGList;
 
-    DataExtractor(ResourceLoader resourceLoader, Path path){
-        this.resourceLoader = resourceLoader;
+    DataExtractor(Path path){
         this.path = path;
-        this.buteeSimuList = extractButeeSimu();
         this.employeeNumberAndUserIdList = extractEmployeeNumberAndUserId();
+        this.buteeSimuList = extractButeeSimu();
         this.buteeSCList = extractButeeSC();
+        this.buteeDGList = extractButeeDG();
     }
 
     private List<EmployeeNumberAndUserId> extractEmployeeNumberAndUserId(){
         return extractData("user_id_employee_number" , EmployeeNumberAndUserId.class);
+    }
+
+    private List<ButeeDG> extractButeeDG(){
+        return extractData("DG" , ButeeDG.class);
     }
 
     private List<ButeeSimu> extractButeeSimu(){
@@ -44,6 +48,5 @@ public class DataExtractor {
     private <O> List<O> extractData(String fileName , Class<O> dataHolderClass){
         return Poiji.fromExcel(new File(path.getAbsolutePathOfXlsx(fileName)), dataHolderClass);
     }
-
 
 }

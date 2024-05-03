@@ -23,7 +23,14 @@ public class ButeeDataCombinator {
 
         buteeList.addAll(generateSCButee());
 
+        buteeList.addAll(generateDGButee());
+
         return attachUserIdToButee(buteeList , dataExtractor.employeeNumberAndUserIdList);
+    }
+
+    // Butee with jeppesenCode = CHL
+    private List<Butee> generateCHLButee(){
+        return generateButee(dataExtractor.buteeSimuList, "CHL");
     }
 
     // Butee with jeppesenCode = SC
@@ -31,9 +38,9 @@ public class ButeeDataCombinator {
         return generateButee(dataExtractor.buteeSCList, "SC");
     }
 
-    // Butee with jeppesenCode = CHL
-    private List<Butee> generateCHLButee(){
-        return generateButee(dataExtractor.buteeSimuList, "CHL");
+    // Butte with jeppesenCode = DG
+    private List<Butee> generateDGButee(){
+        return generateButee(dataExtractor.buteeDGList, "DG");
     }
 
     private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
