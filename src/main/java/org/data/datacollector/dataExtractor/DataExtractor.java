@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractor;
 
 import com.poiji.bind.Poiji;
+import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromCRM.ButeeCRM;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromCtrlEL.ButeeCtrlEL;
 import org.data.datacollector.dataExtractor.dataHolders.dataFromDG.ButeeDG;
@@ -15,53 +16,36 @@ import java.io.File;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class DataExtractor {
 
     private final Path path;
-    public List<EmployeeNumberAndUserId> employeeNumberAndUserIdList;
-    public List<ButeeSimu> buteeSimuList;
-    public List<ButeeSC> buteeSCList;
-    public List<ButeeDG> buteeDGList;
-    public List<ButeeSS> buteeSSList;
-    public List<ButeeCtrlEL> buteeCtrlELList;
-    public List<ButeeCRM> buteeCRMList;
 
-    DataExtractor(Path path){
-        this.path = path;
-        this.employeeNumberAndUserIdList = extractEmployeeNumberAndUserId();
-        this.buteeSimuList = extractButeeSimu();
-        this.buteeSCList = extractButeeSC();
-        this.buteeDGList = extractButeeDG();
-        this.buteeSSList = extractButeeSS();
-        this.buteeCtrlELList = extractButeeCtrlEL();
-        this.buteeCRMList = extractButeeCRM();
-    }
-
-    private List<EmployeeNumberAndUserId> extractEmployeeNumberAndUserId(){
+    public List<EmployeeNumberAndUserId> extractEmployeeNumberAndUserId(){
         return extractData("user_id_employee_number" , EmployeeNumberAndUserId.class);
     }
 
-    private List<ButeeDG> extractButeeDG(){
+    public List<ButeeDG> extractButeeDG(){
         return extractData("DG" , ButeeDG.class);
     }
 
-    private List<ButeeSimu> extractButeeSimu(){
+    public List<ButeeSimu> extractButeeSimu(){
         return extractData("Simu" , ButeeSimu.class);
     }
 
-    private List<ButeeSC> extractButeeSC(){
+    public List<ButeeSC> extractButeeSC(){
         return extractData("SC" , ButeeSC.class);
     }
 
-    private List<ButeeSS> extractButeeSS(){
+    public List<ButeeSS> extractButeeSS(){
         return extractData("SS" , ButeeSS.class);
     }
 
-    private List<ButeeCtrlEL> extractButeeCtrlEL(){
+    public List<ButeeCtrlEL> extractButeeCtrlEL(){
         return extractData("CTRL EL" , ButeeCtrlEL.class);
     }
 
-    private List<ButeeCRM> extractButeeCRM(){
+    public List<ButeeCRM> extractButeeCRM(){
         return extractData("CRM" , ButeeCRM.class);
     }
 

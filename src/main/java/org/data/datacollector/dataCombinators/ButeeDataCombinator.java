@@ -33,37 +33,37 @@ public class ButeeDataCombinator {
 
         buteeList.addAll(generateCRMButee());
 
-        return attachUserIdToButee(buteeList , dataExtractor.employeeNumberAndUserIdList);
+        return attachUserIdToButee(buteeList , dataExtractor.extractEmployeeNumberAndUserId());
     }
 
     // Butee with jeppesenCode = CHL
     private List<Butee> generateCHLButee(){
-        return generateButee(dataExtractor.buteeSimuList, "CHL");
+        return generateButee(dataExtractor.extractButeeSimu(), "CHL");
     }
 
     // Butee with jeppesenCode = SC
     private  List<Butee> generateSCButee(){
-        return generateButee(dataExtractor.buteeSCList, "SC");
+        return generateButee(dataExtractor.extractButeeSC(), "SC");
     }
 
     // Butte with jeppesenCode = DG
     private List<Butee> generateDGButee(){
-        return generateButee(dataExtractor.buteeDGList, "DG");
+        return generateButee(dataExtractor.extractButeeDG(), "DG");
     }
 
     // Butee with jeppesenCode = SS
     private List<Butee> generateSSButee(){
-        return generateButee(dataExtractor.buteeSSList, "SS");
+        return generateButee(dataExtractor.extractButeeSS(), "SS");
     }
 
     // Butee with jeppesenCode = CEL
     private List<Butee> generateCtrlELButee(){
-        return generateButee(dataExtractor.buteeCtrlELList, "CEL");
+        return generateButee(dataExtractor.extractButeeCtrlEL(), "CEL");
     }
 
     // Butee with jeppesenCode = CRM
     private List<Butee> generateCRMButee(){
-        return generateButee(dataExtractor.buteeCRMList, "HF");
+        return generateButee(dataExtractor.extractButeeCRM(), "HF");
     }
 
     private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
@@ -79,21 +79,14 @@ public class ButeeDataCombinator {
     }
 
     private List<Butee> generateButee(List<? extends ButeeData> buteeDataList, String jeppesenCode) {
-        List<Butee> buteeList = new ArrayList<>();
-
-        buteeDataList.forEach(buteeData -> {
-            Long employeeNumber = buteeData.getEmployeeNumber();
-            buteeData.getValidityEnds().forEach(validityEnd -> {
-                Butee butee = Butee.builder()
-                        .employeeNumber(employeeNumber)
-                        .jeppesenCode(jeppesenCode)
-                        .validityEnd(validityEnd)
-                        .build();
-                buteeList.add(butee);
-            });
-        });
-
-        return buteeList;
+        return buteeDataList.stream()
+                .flatMap(buteeData -> buteeData.getValidityEnds().stream()
+                        .map(validityEnd -> Butee.builder()
+                                .employeeNumber(buteeData.getEmployeeNumber())
+                                .jeppesenCode(jeppesenCode)
+                                .validityEnd(validityEnd)
+                                .build()))
+                .toList();
     }
 
 

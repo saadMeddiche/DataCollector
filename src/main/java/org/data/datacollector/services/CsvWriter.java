@@ -80,13 +80,14 @@ public class CsvWriter {
     private static String escapeCsvField(Object value) {
         if (value instanceof Date) {
             return DATE_FORMAT.format((Date) value);
-        } else {
-            String field = value.toString();
-            if (field.contains(separator) || field.contains("\"") || field.contains("\n")) {
-                return "\"" + field.replaceAll("\"", "\"\"") + "\"";
-            } else {
-                return field;
-            }
         }
+
+        String field = value.toString();
+        if (field.contains(separator) || field.contains("\"") || field.contains("\n")) {
+            return "\"" + field.replaceAll("\"", "\"\"") + "\"";
+        }
+
+        return field;
+
     }
 }
