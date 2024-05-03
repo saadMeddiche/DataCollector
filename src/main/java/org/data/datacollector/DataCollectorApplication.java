@@ -29,6 +29,8 @@ public class DataCollectorApplication {
         return args -> {
             List<Butee> buteeList = buteeDataCombinator.getButeeList();
             CsvWriter.writeCsv(buteeList, path.getAbsolutePathOfCsv("butee"));
+            buteeDataCombinator.buteeWithoutUserIdList.forEach(System.out::println);
+            System.out.println(buteeDataCombinator.buteeWithoutUserIdList.size());
         };
     }
 

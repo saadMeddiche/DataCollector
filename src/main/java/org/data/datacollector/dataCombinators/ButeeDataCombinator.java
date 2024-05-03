@@ -16,6 +16,8 @@ public class ButeeDataCombinator {
 
     private final DataExtractor dataExtractor;
 
+    public List<Butee> buteeWithoutUserIdList = new ArrayList<>();
+
     public List<Butee> getButeeList(){
         List<Butee> buteeList = new ArrayList<>();
 
@@ -51,12 +53,15 @@ public class ButeeDataCombinator {
     }
 
     private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
-       return buteeList.stream().peek(butee -> {
-            employeeNumberAndUserIdList.stream()
-                    .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getEmployeeNumber()))
-                    .findFirst()
-                    .ifPresent(employeeNumberAndUserId -> butee.setUserIdFromDB(employeeNumberAndUserId.getUserId()));
-        }).toList();
+       return buteeList.stream().peek(butee -> employeeNumberAndUserIdList.stream()
+               .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getEmployeeNumber()))
+               .findFirst()
+               .ifPresentOrElse(
+                       (employeeNumberAndUserId) -> butee.setUserIdFromDB(employeeNumberAndUserId.getUserId())
+                       ,
+                       () -> buteeWithoutUserIdList.add(butee)
+                       )
+       ).toList();
     }
 
     private List<Butee> generateButee(List<? extends ButeeData> buteeDataList, String jeppesenCode) {
