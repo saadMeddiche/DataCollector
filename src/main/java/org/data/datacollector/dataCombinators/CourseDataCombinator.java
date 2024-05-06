@@ -98,7 +98,7 @@ public class CourseDataCombinator {
                                 .cat2(catBuilder(row.getCatTwo()))
                                 .cat3(catBuilder(row.getCatThree()))
                                 .place(row.getPlace())
-                                .presenceMarked("0")
+                                .presenceMarked(presenceMarkedBuilder("false"))
                                 .activityType(activityType)
                                 .build()
 
@@ -117,6 +117,10 @@ public class CourseDataCombinator {
 
     private String catBuilder(String cat){
         return "YES".equals(cat) ? "1" : "0";
+    }
+
+    private String presenceMarkedBuilder(String presenceMarked){
+        return "true".equals(presenceMarked) ? "1" : "0";
     }
 
 }
