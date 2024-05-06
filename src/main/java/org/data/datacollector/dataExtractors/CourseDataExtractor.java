@@ -1,5 +1,6 @@
 package org.data.datacollector.dataExtractors;
 
+import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.CourseDG;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSimu.CourseSimu;
 import org.springframework.stereotype.Component;
 
@@ -9,5 +10,9 @@ import java.util.List;
 public class CourseDataExtractor extends DataExtractor {
     public List<CourseSimu> extractCourseSimu(){
         return extractData("Simu" , CourseSimu.class);
+    }
+
+    public List<CourseDG> extractCourseDG(){
+        return extractData("DG" , CourseDG.class);
     }
 }

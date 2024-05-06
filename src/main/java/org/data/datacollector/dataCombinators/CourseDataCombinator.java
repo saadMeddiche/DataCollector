@@ -1,7 +1,6 @@
 package org.data.datacollector.dataCombinators;
 
 import lombok.RequiredArgsConstructor;
-import org.data.datacollector.dataCombinators.models.Butee;
 import org.data.datacollector.dataCombinators.models.Course;
 import org.data.datacollector.dataExtractors.CourseDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
@@ -26,12 +25,19 @@ public class CourseDataCombinator {
 
         courseList.addAll(generateCHLCourse());
 
+        courseList.addAll(generateDGCourse());
+
         return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
     }
 
     // Course With activityType = CHL
     private List<Course> generateCHLCourse(){
         return generateCourseList(courseDataExtractor.extractCourseSimu(), "CHL");
+    }
+
+    // Course With activityType = DG
+    private List<Course> generateDGCourse(){
+        return generateCourseList(courseDataExtractor.extractCourseDG(), "DG");
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
@@ -56,13 +62,17 @@ public class CourseDataCombinator {
                                 .cat2(catBuilder(row.getCatTwo()))
                                 .cat3(catBuilder(row.getCatThree()))
                                 .activityType(activityType)
-                                .presenceMarked("false")
+                                .presenceMarked(presenceMarkedBuilder("false"))
                                 .build()
                 )).toList();
     }
 
     private String catBuilder(String cat){
-        return "YES".equals(cat) ? "true" : "false";
+        return "YES".equals(cat) ? "1" : "NO".equals(cat) ? "0" : "";
+    }
+
+    private String presenceMarkedBuilder(String presenceMarked){
+        return "true".equals(presenceMarked) ? "1" : "0";
     }
 
 }

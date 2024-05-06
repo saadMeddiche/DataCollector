@@ -19,7 +19,7 @@ public class ClassHelper {
             field.setAccessible(true);
             return (String) field.get(object);
         } catch (IllegalAccessException | NoSuchFieldException e) {
-            throw new RuntimeException(e);
+            return "";
         }
     }
 }
