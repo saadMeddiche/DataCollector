@@ -25,6 +25,7 @@ public abstract class CourseData {
                         .employeeNumberOfInstructor(ch.getValueFieldByName("instructorNumber" + i))
                         .catTwo(ch.getValueFieldByName("catTwo" + i))
                         .catThree(ch.getValueFieldByName("catThree" + i))
+                        .place(ch.getValueFieldByName("place" + i))
                         .build())
                 .toList();
     }
@@ -40,6 +41,8 @@ public abstract class CourseData {
         private String catTwo;
 
         private String catThree;
+
+        private String place;
 
     }
 

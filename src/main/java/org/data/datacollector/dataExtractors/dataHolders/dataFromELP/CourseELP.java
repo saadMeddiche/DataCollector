@@ -20,6 +20,9 @@ public class CourseELP extends CourseData {
     @ExcelCellName("Dte Test ELP")
     private String courseDate1;
 
+    @ExcelCellName("LIEU")
+    private String place1;
+
     @Override
     public List<Row> getRows() {
         return getRows(1, this.getClass());
