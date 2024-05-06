@@ -29,6 +29,8 @@ public class CourseDataCombinator {
 
         courseList.addAll(generateCtrlELCourse());
 
+        courseList.addAll(generateSCCourse());
+
         return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
     }
 
@@ -45,6 +47,11 @@ public class CourseDataCombinator {
     // Course With activityType = CEL
     private List<Course> generateCtrlELCourse(){
         return generateCourseList(courseDataExtractor.extractCourseCrtlEL(), "CEL");
+    }
+
+    // Course With activityType = SC
+    private List<Course> generateSCCourse(){
+        return generateCourseList(courseDataExtractor.extractCourseSC(), "SC");
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
