@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL;
+package org.data.datacollector.dataExtractors.dataHolders.dataFromCRM;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.AllArgsConstructor;
@@ -13,38 +13,38 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseCrtlEL extends CourseData {
+public class CourseCRM extends CourseData {
 
     @ExcelCellName("MATR")
     private Long employeeNumber;
 
-    @ExcelCellName("Dte CTL1")
+    @ExcelCellName("date_CTL1")
     private String courseDate1;
 
-    @ExcelCellName("Mle1")
+    @ExcelCellName("Mle 1")
     private String instructorNumber1;
 
-    @ExcelCellName("Dte CTL2")
+    @ExcelCellName("date_CTL2")
     private String courseDate2;
 
-    @ExcelCellName("Mle2")
+    @ExcelCellName("Mle 2")
     private String instructorNumber2;
 
-    @ExcelCellName("Dte CTL3")
+    @ExcelCellName("date_CTL3")
     private String courseDate3;
 
-    @ExcelCellName("Mle3")
+    @ExcelCellName("Mle 3")
     private String instructorNumber3;
 
-    @ExcelCellName("Dte CTL4")
+    @ExcelCellName("date_CTL4")
     private String courseDate4;
 
-    @ExcelCellName("Mle4")
+    @ExcelCellName("Mle 4")
     private String instructorNumber4;
 
 
     @Override
     public List<Row> getRows() {
-        return getRows(4, CourseCrtlEL.class);
+        return getRows(4, this.getClass());
     }
 }

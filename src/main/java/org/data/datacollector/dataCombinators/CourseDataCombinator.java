@@ -31,6 +31,8 @@ public class CourseDataCombinator {
 
         courseList.addAll(generateSCCourse());
 
+        courseList.addAll(generateCRMCourse());
+
         return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
     }
 
@@ -52,6 +54,11 @@ public class CourseDataCombinator {
     // Course With activityType = SC
     private List<Course> generateSCCourse(){
         return generateCourseList(courseDataExtractor.extractCourseSC(), "SC");
+    }
+
+    // Course With activityType = CRM
+    private List<Course> generateCRMCourse(){
+        return generateCourseList(courseDataExtractor.extractCourseCRM(), "HF");
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
