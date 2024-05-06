@@ -4,6 +4,7 @@ import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.CourseCRM;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.CourseCrtlEL;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.CourseDG;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSC.CourseSC;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromSS.CourseSS;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSimu.CourseSimu;
 import org.springframework.stereotype.Component;
 
@@ -29,5 +30,9 @@ public class CourseDataExtractor extends DataExtractor {
 
     public List<CourseCRM> extractCourseCRM(){
         return extractData("CRM" , CourseCRM.class);
+    }
+
+    public List<CourseSS> extractCourseSS(){
+        return extractData("SS" , CourseSS.class);
     }
 }
