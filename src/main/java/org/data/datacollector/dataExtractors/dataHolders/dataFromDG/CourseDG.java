@@ -45,6 +45,6 @@ public class CourseDG extends CourseData {
 
     @Override
     public List<CourseData.Row> getRows() {
-        return getRows(4, CourseDG.class);
+        return getRows(4, this.getClass());
     }
 }

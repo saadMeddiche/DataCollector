@@ -19,7 +19,7 @@ public abstract class CourseData {
 
         ClassHelper ch = new ClassHelper(clazz , this);
 
-        return IntStream.range(1, max)
+        return IntStream.range(1, ++max)
                 .mapToObj(i -> Row.builder()
                         .courseDate(ch.getValueFieldByName("courseDate" + i))
                         .employeeNumberOfInstructor(ch.getValueFieldByName("instructorNumber" + i))

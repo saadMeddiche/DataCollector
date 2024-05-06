@@ -35,6 +35,8 @@ public class CourseDataCombinator {
 
         courseList.addAll(generateSSCourse());
 
+        courseList.addAll(generateELPCourse());
+
         return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
     }
 
@@ -66,6 +68,11 @@ public class CourseDataCombinator {
     // Course With activityType = SS
     private List<Course> generateSSCourse(){
         return generateCourseList(courseDataExtractor.extractCourseSS(), "SS");
+    }
+
+    // Course With activityType = EA
+    private List<Course> generateELPCourse(){
+        return generateCourseList(courseDataExtractor.extractCourseELP(), "EA");
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){

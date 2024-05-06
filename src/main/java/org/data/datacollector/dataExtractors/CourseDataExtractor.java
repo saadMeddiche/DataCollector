@@ -3,6 +3,7 @@ package org.data.datacollector.dataExtractors;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.CourseCRM;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.CourseCrtlEL;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.CourseDG;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromELP.CourseELP;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSC.CourseSC;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSS.CourseSS;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSimu.CourseSimu;
@@ -34,5 +35,9 @@ public class CourseDataExtractor extends DataExtractor {
 
     public List<CourseSS> extractCourseSS(){
         return extractData("SS" , CourseSS.class);
+    }
+
+    public List<CourseELP> extractCourseELP(){
+        return extractData("ELP" , CourseELP.class);
     }
 }
