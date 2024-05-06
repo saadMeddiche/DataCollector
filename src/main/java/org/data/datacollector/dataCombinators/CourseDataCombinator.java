@@ -9,6 +9,7 @@ import org.data.datacollector.dataExtractors.global.CourseData;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -50,7 +51,7 @@ public class CourseDataCombinator {
                 .flatMap(courseData -> courseData.getRows().stream()
                         .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
                         .map(row -> Course.builder()
-                                .courseDate(row.getCourseDate())
+                                .courseDate(new Date(row.getCourseDate()))
                                 .employeeNumberOfInstructor(row.getEmployeeNumberOfInstructor())
                                 .cat2(catBuilder(row.getCatTwo()))
                                 .cat3(catBuilder(row.getCatThree()))
