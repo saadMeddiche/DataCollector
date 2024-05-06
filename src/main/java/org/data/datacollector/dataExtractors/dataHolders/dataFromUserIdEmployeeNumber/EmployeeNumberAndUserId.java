@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class EmployeeNumberAndUserId {
 
     @ExcelCellName("employee_number")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("id")
-    private Long userId;
+    private String userId;
 }

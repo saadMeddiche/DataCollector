@@ -17,7 +17,7 @@ import java.util.List;
 public class ButeeSimu extends ButeeData {
 
     @ExcelCellName("MATR")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("Butée 1")
     private String validityEnd1;

@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public abstract class ButeeData {
 
-    public abstract Long getEmployeeNumber();
+    public abstract String getEmployeeNumber();
 
     public abstract List<Date> getValidityEnds();
 

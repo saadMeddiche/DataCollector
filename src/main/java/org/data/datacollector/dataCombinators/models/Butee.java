@@ -13,9 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 public class Butee {
 
-    private Long userIdFromDB;
+    private String userId;
 
-    private Long employeeNumber;
+    private String employeeNumber;
 
     private String jeppesenCode;
 

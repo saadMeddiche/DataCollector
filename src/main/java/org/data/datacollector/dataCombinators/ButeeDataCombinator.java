@@ -77,7 +77,7 @@ public class ButeeDataCombinator {
                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getEmployeeNumber()))
                .findFirst()
                .ifPresentOrElse(
-                       (employeeNumberAndUserId) -> butee.setUserIdFromDB(employeeNumberAndUserId.getUserId())
+                       (employeeNumberAndUserId) -> butee.setUserId(employeeNumberAndUserId.getUserId())
                        ,
                        () -> buteeWithoutUserIdList.add(butee)
                        )

@@ -17,7 +17,7 @@ import java.util.List;
 public class ButeeCtrlEL extends ButeeData {
 
     @ExcelCellName("MATR")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("Butée EL1")
     private String validityEnd1;

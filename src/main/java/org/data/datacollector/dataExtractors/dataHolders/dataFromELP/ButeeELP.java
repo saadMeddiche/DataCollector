@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ButeeELP extends ButeeData {
     @ExcelCellName("Mle")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("Butée")
     private String validityEnd1;
