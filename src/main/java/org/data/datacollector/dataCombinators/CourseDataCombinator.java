@@ -70,6 +70,7 @@ public class CourseDataCombinator {
                                 .cat3(catBuilder(row.getCatThree()))
                                 .activityType(activityType)
                                 .build()
+
                 )).toList();
     }
 
