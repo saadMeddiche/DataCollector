@@ -7,6 +7,7 @@ import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeN
 import org.data.datacollector.dataExtractors.global.CourseData;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -92,7 +93,7 @@ public class CourseDataCombinator {
                 .flatMap(courseData -> courseData.getRows().stream()
                         .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
                         .map(row -> Course.builder()
-                                .courseDate(new Date(row.getCourseDate()))
+                                .courseDate(dateBuilder(row.getCourseDate()))
                                 .employeeNumberOfInstructor(row.getEmployeeNumberOfInstructor())
                                 .cat2(catBuilder(row.getCatTwo()))
                                 .cat3(catBuilder(row.getCatThree()))
@@ -100,6 +101,16 @@ public class CourseDataCombinator {
                                 .build()
 
                 )).toList();
+    }
+
+    private String dateBuilder(String date){
+        Date date1 = new Date(date);
+
+        date1.setHours(12);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        return formatter.format(date1);
     }
 
     private String catBuilder(String cat){

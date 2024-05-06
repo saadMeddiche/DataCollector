@@ -7,7 +7,9 @@ import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeN
 import org.data.datacollector.dataExtractors.global.ButeeData;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -90,9 +92,18 @@ public class ButeeDataCombinator {
                         .map(validityEnd -> Butee.builder()
                                 .employeeNumber(buteeData.getEmployeeNumber())
                                 .jeppesenCode(jeppesenCode)
-                                .validityEnd(validityEnd)
+                                .validityEnd(dateBuilder(validityEnd))
                                 .build()))
                 .toList();
+    }
+
+    private String dateBuilder(Date date){
+
+        date.setHours(12);
+
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        return formatter.format(date);
     }
 
 

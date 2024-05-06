@@ -22,7 +22,7 @@ public class Course {
 
     private String examDate;
 
-    private Date courseDate;
+    private String courseDate;
 
     private String activityType;
 

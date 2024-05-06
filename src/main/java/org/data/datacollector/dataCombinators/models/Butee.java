@@ -13,9 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Butee {
 
-    private String userId;
-
-    private String employeeNumber;
+    private String id;
 
     private String jeppesenCode;
 
@@ -23,7 +21,11 @@ public class Butee {
 
     private Date validityStart;
 
-    private Date validityEnd;
+    private String validityEnd;
+
+    private String userId;
+
+    private String employeeNumber;
 
     private Long trainingId;
 
