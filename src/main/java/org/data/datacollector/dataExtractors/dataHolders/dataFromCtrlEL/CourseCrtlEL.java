@@ -1,10 +1,11 @@
-package org.data.datacollector.dataExtractors.dataHolders.dataFromDG;
+package org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.CourseDG;
 import org.data.datacollector.dataExtractors.global.CourseData;
 
 import java.util.List;
@@ -13,30 +14,30 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CourseDG extends CourseData {
+public class CourseCrtlEL extends CourseData {
 
     @ExcelCellName("MATR")
     private Long employeeNumber;
 
-    @ExcelCellName("Dte DG1")
+    @ExcelCellName("Dte CTL1")
     private String courseDate1;
 
     @ExcelCellName("Mle1")
     private String instructorNumber1;
 
-    @ExcelCellName("Dte DG2")
+    @ExcelCellName("Dte CTL2")
     private String courseDate2;
 
     @ExcelCellName("Mle2")
     private String instructorNumber2;
 
-    @ExcelCellName("Dte DG3")
+    @ExcelCellName("Dte CTL3")
     private String courseDate3;
 
     @ExcelCellName("Mle3")
     private String instructorNumber3;
 
-    @ExcelCellName("Dte DG4")
+    @ExcelCellName("Dte CTL4")
     private String courseDate4;
 
     @ExcelCellName("Mle4")
@@ -44,7 +45,7 @@ public class CourseDG extends CourseData {
 
 
     @Override
-    public List<CourseData.Row> getRows() {
-        return getRows(4, CourseDG.class);
+    public List<Row> getRows() {
+        return getRows(4, CourseCrtlEL.class);
     }
 }

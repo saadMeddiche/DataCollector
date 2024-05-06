@@ -27,6 +27,8 @@ public class CourseDataCombinator {
 
         courseList.addAll(generateDGCourse());
 
+        courseList.addAll(generateCtrlELCourse());
+
         return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
     }
 
@@ -38,6 +40,11 @@ public class CourseDataCombinator {
     // Course With activityType = DG
     private List<Course> generateDGCourse(){
         return generateCourseList(courseDataExtractor.extractCourseDG(), "DG");
+    }
+
+    // Course With activityType = CEL
+    private List<Course> generateCtrlELCourse(){
+        return generateCourseList(courseDataExtractor.extractCourseCrtlEL(), "CEL");
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
@@ -62,17 +69,12 @@ public class CourseDataCombinator {
                                 .cat2(catBuilder(row.getCatTwo()))
                                 .cat3(catBuilder(row.getCatThree()))
                                 .activityType(activityType)
-                                .presenceMarked(presenceMarkedBuilder("false"))
                                 .build()
                 )).toList();
     }
 
     private String catBuilder(String cat){
         return "YES".equals(cat) ? "1" : "NO".equals(cat) ? "0" : "";
-    }
-
-    private String presenceMarkedBuilder(String presenceMarked){
-        return "true".equals(presenceMarked) ? "1" : "0";
     }
 
 }
