@@ -65,6 +65,9 @@ public class DataCollectorApplication {
         CsvWriter.writeCsv(courseList, path.getAbsolutePathOfCsv("course"));
         System.out.println("courseList Count :"+ courseList.size());
         System.out.println("courseWithoutInstructorId Count :"+ courseDataCombinator.courseWithoutInstructorIdList.size());
+        courseDataCombinator.courseWithoutInstructorIdList.forEach(
+                course -> System.out.println(course.getEmployeeNumberOfInstructor() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
+        );
     }
 
     private void CatProcess(){
@@ -73,6 +76,11 @@ public class DataCollectorApplication {
         System.out.println("catList Count :"+ catList.size());
         System.out.println("catWithoutInstructorId Count :"+ catDataCombinator.catWithoutInstructorIdList.size());
         System.out.println("catWithoutPntId Count :"+ catDataCombinator.catWithoutPntIdList.size());
+        catDataCombinator.catWithoutInstructorIdList.forEach(
+                cat -> {
+                    if(cat.getEmployeeNumberOfInstructor() != null) System.out.println(cat.getEmployeeNumberOfInstructor() + " " + cat.getInstructorId());
+                }
+        );
     }
 
     private void UserProcess(){
