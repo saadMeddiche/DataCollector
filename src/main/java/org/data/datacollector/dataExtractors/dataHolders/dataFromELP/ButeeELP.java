@@ -22,7 +22,7 @@ public class ButeeELP extends ButeeData {
     private String validityEnd1;
 
     @Override
-    public List<Date> getValidityEnds(){
+    public List<String> getValidityEnds(){
         return getValidityEnds(1 , ButeeELP.class);
     }
 }

@@ -12,17 +12,15 @@ public abstract class ButeeData {
 
     public abstract String getEmployeeNumber();
 
-    public abstract List<Date> getValidityEnds();
+    public abstract List<String> getValidityEnds();
 
-    protected List<Date> getValidityEnds(Integer max , Class<? extends ButeeData> clazz){
+    protected List<String> getValidityEnds(Integer max , Class<? extends ButeeData> clazz){
 
         ClassHelper ch = new ClassHelper(clazz , this);
 
-        List<String> validityEndsList = IntStream.rangeClosed(1, ++max)
+        return IntStream.rangeClosed(1, ++max)
                 .mapToObj(i -> ch.getValueFieldByName("validityEnd" + i))
                 .filter(val -> val != null && !val.isEmpty())
                 .toList();
-
-        return validityEndsList.stream().map(Date::new).collect(Collectors.toList());
     };
 }

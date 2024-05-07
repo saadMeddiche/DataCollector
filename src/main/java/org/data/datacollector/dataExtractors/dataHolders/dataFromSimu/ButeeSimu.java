@@ -44,7 +44,7 @@ public class ButeeSimu extends ButeeData {
     private String validityEnd8;
 
     @Override
-    public List<Date> getValidityEnds(){
+    public List<String> getValidityEnds(){
         return getValidityEnds(8 , ButeeSimu.class);
     }
 }

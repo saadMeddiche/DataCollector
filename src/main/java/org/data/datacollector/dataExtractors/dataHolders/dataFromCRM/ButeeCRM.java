@@ -32,7 +32,7 @@ public class ButeeCRM extends ButeeData {
     private String validityEnd4;
 
     @Override
-    public List<Date> getValidityEnds(){
+    public List<String> getValidityEnds(){
         return getValidityEnds(4 , ButeeCRM.class);
     }
 }

@@ -11,10 +11,6 @@ import java.util.function.Function;
 
 public class DataCombinator {
 
-    protected String dateBuilder(Date date){
-        return globalDateBuilder(date);
-    }
-
     protected String dateBuilder(String date){
         if(date == null || date.isEmpty()) return "";
         return globalDateBuilder(new Date(date));
