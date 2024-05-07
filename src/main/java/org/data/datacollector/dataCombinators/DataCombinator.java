@@ -20,22 +20,24 @@ public class DataCombinator {
 
         AttachedData<O> attachedData = new AttachedData<>();
 
-        attachedData.dataList =  dataList.stream().map(
-            data -> employeeNumberAndUserIdList.stream()
-            .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(employeeNumberGetter.apply(data)))
-            .findFirst()
-            .map(
-                employeeNumberAndUserId -> {
-                    idSetter.apply(data , employeeNumberAndUserId.getUserId());
-                    return data;
-                }
-            ).orElseGet(
-                () -> {
-                    attachedData.getDataWithoutUserIdList().add(data);
-                    return data;
-                }
-            )
-        ).toList();
+        attachedData.setDataList(
+            dataList.stream().map(
+                data -> employeeNumberAndUserIdList.stream()
+                        .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(employeeNumberGetter.apply(data)))
+                        .findFirst()
+                        .map(
+                                employeeNumberAndUserId -> {
+                                    idSetter.apply(data , employeeNumberAndUserId.getUserId());
+                                    return data;
+                                }
+                        ).orElseGet(
+                                () -> {
+                                    attachedData.pushDataWithoutUserId(data);
+                                    return data;
+                                }
+                        )
+            ).toList()
+        );
 
         return attachedData;
     }
@@ -53,5 +55,9 @@ public class DataCombinator {
     static class AttachedData<O> {
         private List<O> dataList;
         private List<O> dataWithoutUserIdList;
+
+        public void pushDataWithoutUserId(O data){
+            this.dataWithoutUserIdList.add(data);
+        }
     }
 }
