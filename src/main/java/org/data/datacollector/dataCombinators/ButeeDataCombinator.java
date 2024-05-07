@@ -14,7 +14,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class ButeeDataCombinator {
+public class ButeeDataCombinator extends DataCombinator {
 
     private final ButeeDataExtractor buteeDataExtractor;
 
@@ -96,15 +96,5 @@ public class ButeeDataCombinator {
                                 .build()))
                 .toList();
     }
-
-    private String dateBuilder(Date date){
-
-        date.setHours(12);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-        return formatter.format(date);
-    }
-
 
 }

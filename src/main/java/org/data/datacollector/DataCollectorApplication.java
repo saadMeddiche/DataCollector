@@ -4,9 +4,11 @@ import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.ButeeDataCombinator;
 import org.data.datacollector.dataCombinators.CatDataCombinator;
 import org.data.datacollector.dataCombinators.CourseDataCombinator;
+import org.data.datacollector.dataCombinators.UserDataCombinator;
 import org.data.datacollector.dataCombinators.models.Butee;
 import org.data.datacollector.dataCombinators.models.Cat;
 import org.data.datacollector.dataCombinators.models.Course;
+import org.data.datacollector.dataCombinators.models.User;
 import org.data.datacollector.dataExtractors.CatDataExtractor;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
@@ -15,6 +17,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -26,6 +29,8 @@ public class DataCollectorApplication {
     private final CourseDataCombinator courseDataCombinator;
 
     private final CatDataCombinator catDataCombinator;
+
+    private final UserDataCombinator userDataCombinator;
 
     private final Path path;
 
@@ -42,6 +47,9 @@ public class DataCollectorApplication {
             CourseProcess();
             System.out.println("\n---------------------------------------------------");
             CatProcess();
+            System.out.println("\n---------------------------------------------------");
+            UserProcess();
+
         };
     }
 
@@ -65,6 +73,12 @@ public class DataCollectorApplication {
         System.out.println("catList Count :"+ catList.size());
         System.out.println("catWithoutInstructorId Count :"+ catDataCombinator.catWithoutInstructorIdList.size());
         System.out.println("catWithoutPntId Count :"+ catDataCombinator.catWithoutPntIdList.size());
+    }
+
+    private void UserProcess(){
+        List<User> userList = userDataCombinator.getUserList();
+        CsvWriter.writeCsv(userList, path.getAbsolutePathOfCsv("user"));
+        System.out.println("userList Count :"+ userList.size());
     }
 
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class CourseDataCombinator {
+public class CourseDataCombinator extends DataCombinator {
 
     private final CourseDataExtractor courseDataExtractor;
 
@@ -103,16 +103,6 @@ public class CourseDataCombinator {
                                 .build()
 
                 )).toList();
-    }
-
-    private String dateBuilder(String date){
-        Date date1 = new Date(date);
-
-        date1.setHours(12);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-        return formatter.format(date1);
     }
 
     private String catBuilder(String cat){

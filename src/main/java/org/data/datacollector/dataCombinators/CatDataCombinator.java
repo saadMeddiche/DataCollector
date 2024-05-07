@@ -14,7 +14,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class CatDataCombinator {
+public class CatDataCombinator extends DataCombinator {
 
     private final CatDataExtractor catDataExtractor;
 
@@ -112,18 +112,4 @@ public class CatDataCombinator {
         return catList;
     }
 
-    private String dateBuilder(String date){
-        try {
-            Date date1 = new Date(date);
-
-            date1.setHours(12);
-
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-            return formatter.format(date1);
-        } catch (Exception e) {
-            System.out.println("Error while parsing date: " + date);
-            return "";
-        }
-    }
 }
