@@ -15,7 +15,7 @@ import java.util.List;
 public class CourseELP extends CourseData {
 
     @ExcelCellName("Mle")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("Dte Test ELP")
     private String courseDate1;

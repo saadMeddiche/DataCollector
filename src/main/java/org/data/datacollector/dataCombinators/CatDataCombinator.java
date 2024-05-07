@@ -18,6 +18,8 @@ public class CatDataCombinator extends DataCombinator {
 
     private final CatDataExtractor catDataExtractor;
 
+    private Long START_ID = 1L;
+
     public List<Cat> catWithoutPntIdList = new ArrayList<>();
 
     public List<Cat> catWithoutInstructorIdList = new ArrayList<>();
@@ -66,45 +68,49 @@ public class CatDataCombinator extends DataCombinator {
 
             if (catCAT2.getCat2FinalDate() != null && !catCAT2.getCat2FinalDate().isEmpty())
                 catList.add(Cat.builder()
-                    .type("CAT II")
-                    .category("FINAL")
-                    .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
-                    .inst(catCAT2.getCat2FinalInstructorName())
-                    .date(dateBuilder(catCAT2.getCat2FinalDate()))
-                    .employeeNumberOfInstructor(catCAT2.getCat2FinalEmployeeNumberOfInstructor())
-                    .build());
+                        .id(String.valueOf(START_ID++))
+                        .type("CAT II")
+                        .category("FINAL")
+                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .inst(catCAT2.getCat2FinalInstructorName())
+                        .date(dateBuilder(catCAT2.getCat2FinalDate()))
+                        .employeeNumberOfInstructor(catCAT2.getCat2FinalEmployeeNumberOfInstructor())
+                        .build());
 
             if (catCAT2.getCat2TransitionDate() != null && !catCAT2.getCat2TransitionDate().isEmpty())
                 catList.add(Cat.builder()
-                    .type("CAT II")
-                    .category("TRANSITION")
-                    .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
-                    .inst(catCAT2.getCat2TransitionInstructorName())
-                    .date(dateBuilder(catCAT2.getCat2TransitionDate()))
-                    .employeeNumberOfInstructor(catCAT2.getCat2TransitionEmployeeNumberOfInstructor())
-                    .build()
+                        .id(String.valueOf(START_ID++))
+                        .type("CAT II")
+                        .category("TRANSITION")
+                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .inst(catCAT2.getCat2TransitionInstructorName())
+                        .date(dateBuilder(catCAT2.getCat2TransitionDate()))
+                        .employeeNumberOfInstructor(catCAT2.getCat2TransitionEmployeeNumberOfInstructor())
+                        .build()
                 );
 
             if (catCAT2.getCat3FinalDate() != null && !catCAT2.getCat3FinalDate().isEmpty())
                 catList.add(Cat.builder()
-                    .type("CAT III")
-                    .category("FINAL")
-                    .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
-                    .inst(catCAT2.getCat3FinalInstructorName())
-                    .date(dateBuilder(catCAT2.getCat3FinalDate()))
-                    .employeeNumberOfInstructor(catCAT2.getCat3FinalEmployeeNumberOfInstructor())
-                    .build()
+                        .id(String.valueOf(START_ID++))
+                        .type("CAT III")
+                        .category("FINAL")
+                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .inst(catCAT2.getCat3FinalInstructorName())
+                        .date(dateBuilder(catCAT2.getCat3FinalDate()))
+                        .employeeNumberOfInstructor(catCAT2.getCat3FinalEmployeeNumberOfInstructor())
+                        .build()
                 );
 
             if (catCAT2.getCat3TransitionDate() != null && !catCAT2.getCat3TransitionDate().isEmpty())
                 catList.add(Cat.builder()
-                    .type("CAT III")
-                    .category("TRANSITION")
-                    .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
-                    .inst(catCAT2.getCat3TransitionInstructorName())
-                    .date(dateBuilder(catCAT2.getCat3TransitionDate()))
-                    .employeeNumberOfInstructor(catCAT2.getCat3TransitionEmployeeNumberOfInstructor())
-                    .build()
+                        .id(String.valueOf(START_ID++))
+                        .type("CAT III")
+                        .category("TRANSITION")
+                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .inst(catCAT2.getCat3TransitionInstructorName())
+                        .date(dateBuilder(catCAT2.getCat3TransitionDate()))
+                        .employeeNumberOfInstructor(catCAT2.getCat3TransitionEmployeeNumberOfInstructor())
+                        .build()
                 );
 
         });

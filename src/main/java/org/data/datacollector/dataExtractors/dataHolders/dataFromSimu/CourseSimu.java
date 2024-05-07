@@ -16,7 +16,7 @@ import java.util.List;
 public class CourseSimu extends CourseData {
 
     @ExcelCellName("MATR")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("date1")
     private String courseDate1;

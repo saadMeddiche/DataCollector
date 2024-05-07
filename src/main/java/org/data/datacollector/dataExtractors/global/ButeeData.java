@@ -2,10 +2,7 @@ package org.data.datacollector.dataExtractors.global;
 
 import org.data.datacollector.services.ClassHelper;
 
-import java.lang.reflect.Field;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public abstract class ButeeData {

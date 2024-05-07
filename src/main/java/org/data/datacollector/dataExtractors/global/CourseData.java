@@ -8,10 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@Component
 public abstract class CourseData {
 
-    protected abstract Long getEmployeeNumber();
+    public abstract String getEmployeeNumber();
 
     public abstract List<Row> getRows();
 

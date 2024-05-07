@@ -15,7 +15,7 @@ public class UserCourse {
 
     private String id;
 
-    private String oldButeeDate;
+    private String oldButeeDate; // Fill -------
 
     private String isLongAbsence; //Only for ProficiencyCheck
 
@@ -23,9 +23,9 @@ public class UserCourse {
 
     private String quizEmailSent; //Only for ground courses
 
-    private String traineeId;
+    private String traineeId; // Fill -------
 
-    private String courseId;
+    private String courseId; // Fill -------
 
     private String quizHistoryId;
 

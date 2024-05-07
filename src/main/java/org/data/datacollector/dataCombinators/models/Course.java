@@ -40,10 +40,11 @@ public class Course {
 
     private String instructorId;
 
-    private String employeeNumberOfInstructor;
-
     private String examinatorId;
 
     private String trainingId;
+
+    // Not Needed in database , only for data collection
+    private String employeeNumberOfInstructor;
 
 }

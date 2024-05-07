@@ -1,14 +1,8 @@
 package org.data.datacollector;
 
 import lombok.RequiredArgsConstructor;
-import org.data.datacollector.dataCombinators.ButeeDataCombinator;
-import org.data.datacollector.dataCombinators.CatDataCombinator;
-import org.data.datacollector.dataCombinators.CourseDataCombinator;
-import org.data.datacollector.dataCombinators.UserDataCombinator;
-import org.data.datacollector.dataCombinators.models.Butee;
-import org.data.datacollector.dataCombinators.models.Cat;
-import org.data.datacollector.dataCombinators.models.Course;
-import org.data.datacollector.dataCombinators.models.User;
+import org.data.datacollector.dataCombinators.*;
+import org.data.datacollector.dataCombinators.models.*;
 import org.data.datacollector.dataExtractors.CatDataExtractor;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
@@ -32,6 +26,8 @@ public class DataCollectorApplication {
 
     private final UserDataCombinator userDataCombinator;
 
+    private final UserCourseDataCombinator userCourseDataCombinator;
+
     private final Path path;
 
     public static void main(String[] args) {
@@ -49,6 +45,8 @@ public class DataCollectorApplication {
             CatProcess();
             System.out.println("\n---------------------------------------------------");
             UserProcess();
+            System.out.println("\n---------------------------------------------------");
+            UserCourseProcess();
 
         };
     }
@@ -65,9 +63,9 @@ public class DataCollectorApplication {
         CsvWriter.writeCsv(courseList, path.getAbsolutePathOfCsv("course"));
         System.out.println("courseList Count :"+ courseList.size());
         System.out.println("courseWithoutInstructorId Count :"+ courseDataCombinator.courseWithoutInstructorIdList.size());
-        courseDataCombinator.courseWithoutInstructorIdList.forEach(
-                course -> System.out.println(course.getEmployeeNumberOfInstructor() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
-        );
+//        courseDataCombinator.courseWithoutInstructorIdList.forEach(
+//                course -> System.out.println(course.getEmployeeNumberOfInstructor() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
+//        );
     }
 
     private void CatProcess(){
@@ -76,17 +74,23 @@ public class DataCollectorApplication {
         System.out.println("catList Count :"+ catList.size());
         System.out.println("catWithoutInstructorId Count :"+ catDataCombinator.catWithoutInstructorIdList.size());
         System.out.println("catWithoutPntId Count :"+ catDataCombinator.catWithoutPntIdList.size());
-        catDataCombinator.catWithoutInstructorIdList.forEach(
-                cat -> {
-                    if(cat.getEmployeeNumberOfInstructor() != null) System.out.println(cat.getEmployeeNumberOfInstructor() + " " + cat.getInstructorId());
-                }
-        );
+//        catDataCombinator.catWithoutInstructorIdList.forEach(
+//                cat -> {
+//                    if(cat.getEmployeeNumberOfInstructor() != null) System.out.println(cat.getEmployeeNumberOfInstructor() + " " + cat.getInstructorId());
+//                }
+//        );
     }
 
     private void UserProcess(){
         List<User> userList = userDataCombinator.getUserList();
         CsvWriter.writeCsv(userList, path.getAbsolutePathOfCsv("user"));
         System.out.println("userList Count :"+ userList.size());
+    }
+
+    private void UserCourseProcess(){
+        List<UserCourse> userCourseList = userCourseDataCombinator.getUserCourseList();
+        CsvWriter.writeCsv(userCourseList, path.getAbsolutePathOfCsv("userCourse"));
+        System.out.println("userCourseList Count :"+ userCourseList.size());
     }
 
 }

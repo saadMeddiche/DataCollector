@@ -8,15 +8,15 @@ import org.data.datacollector.dataExtractors.global.CourseData;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Component
 @RequiredArgsConstructor
 public class CourseDataCombinator extends DataCombinator {
 
     private final CourseDataExtractor courseDataExtractor;
+
+    private Long START_ID = 1L;
 
     public List<Course> courseWithoutInstructorIdList = new ArrayList<>();
 
@@ -89,7 +89,8 @@ public class CourseDataCombinator extends DataCombinator {
     }
 
     private List<Course> generateCourseList(List<? extends CourseData> courseDataList , String activityType){
-        return courseDataList.stream()
+
+        List<Course> courseList = courseDataList.stream()
                 .flatMap(courseData -> courseData.getRows().stream()
                         .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
                         .map(row -> Course.builder()
@@ -103,6 +104,11 @@ public class CourseDataCombinator extends DataCombinator {
                                 .build()
 
                 )).toList();
+
+        // Remove Repetition
+        Set<Course> courseSet = new HashSet<>(courseList);
+
+        return courseSet.stream().peek(course -> course.setId(String.valueOf(START_ID++))).toList();
     }
 
     private String catBuilder(String cat){

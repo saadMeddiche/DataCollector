@@ -18,6 +18,8 @@ public class ButeeDataCombinator extends DataCombinator {
 
     private final ButeeDataExtractor buteeDataExtractor;
 
+    private Long START_ID = 1L;
+
     public List<Butee> buteeWithoutUserIdList = new ArrayList<>();
 
     public List<Butee> getButeeList(){
@@ -90,6 +92,7 @@ public class ButeeDataCombinator extends DataCombinator {
         return buteeDataList.stream()
                 .flatMap(buteeData -> buteeData.getValidityEnds().stream()
                         .map(validityEnd -> Butee.builder()
+                                .id(String.valueOf(START_ID++))
                                 .employeeNumber(buteeData.getEmployeeNumber())
                                 .jeppesenCode(jeppesenCode)
                                 .validityEnd(dateBuilder(validityEnd))

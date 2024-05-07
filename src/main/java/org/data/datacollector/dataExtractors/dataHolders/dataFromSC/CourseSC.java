@@ -16,7 +16,7 @@ import java.util.List;
 public class CourseSC extends CourseData {
 
     @ExcelCellName("MATR")
-    private Long employeeNumber;
+    private String employeeNumber;
 
     @ExcelCellName("Dte CTL1")
     private String courseDate1;

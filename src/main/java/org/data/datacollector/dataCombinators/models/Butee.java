@@ -25,11 +25,12 @@ public class Butee {
 
     private String userId;
 
-    private String employeeNumber;
-
     private String trainingId;
 
     private String createdDate;
 
     private String lastModifiedDate;
+
+    // Not Needed in database , only for data collection
+    private String employeeNumber;
 }
