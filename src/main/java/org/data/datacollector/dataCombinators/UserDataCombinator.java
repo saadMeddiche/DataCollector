@@ -37,6 +37,7 @@ public class UserDataCombinator extends DataCombinator {
         return userPERSOList.stream()
                 .map(userPERSO -> User.builder()
                         .id(String.valueOf(START_ID++))
+                        .username("NULL")
                         .personalType("PNT")
                         .employeeNumber(userPERSO.getEmployeeNumber())
                         .firstName(userPERSO.getFirstName())

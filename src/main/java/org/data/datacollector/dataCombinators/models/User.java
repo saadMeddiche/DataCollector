@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Builder
 @Data
 @AllArgsConstructor
@@ -13,94 +12,49 @@ import lombok.NoArgsConstructor;
 public class User {
 
     private String id;
-
-    private String employeeNumber; // matricule
-
-    private String username;
-
-    private String password;
-
-    private String firstName;
-
-    private String lastName;
-
-    private String nationality;
-
-    private String status;
-
-    private String cFunction;
-
-    private String tel1;
-
-    private String tel2;
-
-    private String email;
-
     private String address;
-
-    private String city;
-
-    private String birthDate;
-
-    private String birthPlace;
-
-    private String companyJoiningDate;
-
-    private String familyStatus;
-
-    private String gender;
-
-    private String flightSector;
-
-    private String passportNumber;
-
-    private String passportValidityDate;
-
-    private String personalType; //PNT ou PNT ..etc
-
-    private String cin;
-
-    private String jobId;
-
-    private String organizationUnit;
-
-    private String releaseDate;
-
-    private String releasedByEmployeeNumber;
-
-    private String seniorityDate;
-
-    private String seniority;
-
-    private String employeesManagerNumber;
-
     private String airplaneSpecialty;
-
-    private String licence;
-
-    private String licenceValidityEnd;
-
+    private String birthDate;
+    private String birthPlace;
+    private String cFunction;
+    private String cin;
+    private String city;
+    private String companyJoiningDate;
+//    private String createdDate; // nope
     private String dacAutNumber;
-
     private String dacAutValidityEnd;
-
-    private String isSIE;
-
-    private String nextMedicalExaminationDate;
-
-    private String photoLocation;
-
-    private String isPN;
-
-    private String isTemporaryInstructor; //instructeur vacataire : soit retraité ou externe...
-
+//    private String electronicSignature; // nope
+    private String email;
+    private String employeeNumber; // matricule
+    private String employeesManagerNumber;
+    private String familyStatus;
+    private String firstName;
+    private String flightSector;
+    private String gender;
     private String image;
-
-    private String isJeppesenUpdated;
-
-    private String electronicSignature;
-
-    private String createdDate;
-
-    private String lastModifiedDate;
+//    private String isJeppesenUpdated; // nope
+    private String isPN;
+    private String isSIE;
+    private String isTemporaryInstructor; //instructeur vacataire : soit retraité ou externe...
+    private String jobId;
+//    private String lastModifiedDate; // nope
+    private String lastName;
+    private String licence;
+    private String licenceValidityEnd;
+    private String nationality;
+    private String nextMedicalExaminationDate;
+    private String organizationUnit;
+    private String passportNumber;
+    private String passportValidityDate;
+    private String password;
+    private String personalType; //PNT ou PNT ..etc
+    private String photoLocation;
+    private String releaseDate;
+    private String releasedByEmployeeNumber;
+    private String seniority;
+    private String seniorityDate;
+    private String tel1;
+    private String tel2;
+    private String username;
+    private String status;
 }
