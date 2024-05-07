@@ -19,7 +19,7 @@ public class Butee {
 
     private String category;
 
-    private Date validityStart;
+    private String validityStart;
 
     private String validityEnd;
 
@@ -27,9 +27,9 @@ public class Butee {
 
     private String employeeNumber;
 
-    private Long trainingId;
+    private String trainingId;
 
-    private Date createdDate;
+    private String createdDate;
 
-    private Date lastModifiedDate;
+    private String lastModifiedDate;
 }

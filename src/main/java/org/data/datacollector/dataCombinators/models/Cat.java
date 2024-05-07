@@ -13,7 +13,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Cat {
 
-    private Date id;
+    private String id;
 
     //CAT II ou CAT III
     private String type;
