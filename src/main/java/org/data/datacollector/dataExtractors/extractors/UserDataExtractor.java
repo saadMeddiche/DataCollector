@@ -1,5 +1,6 @@
-package org.data.datacollector.dataExtractors;
+package org.data.datacollector.dataExtractors.extractors;
 
+import org.data.datacollector.dataExtractors.DataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromPERSO.UserPERSO;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUTETPF.UserUTETPF;
 import org.springframework.stereotype.Component;

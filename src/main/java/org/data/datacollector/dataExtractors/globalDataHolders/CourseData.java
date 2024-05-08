@@ -1,9 +1,8 @@
-package org.data.datacollector.dataExtractors.global;
+package org.data.datacollector.dataExtractors.globalDataHolders;
 
 import lombok.Builder;
 import lombok.Getter;
 import org.data.datacollector.services.ClassHelper;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.IntStream;

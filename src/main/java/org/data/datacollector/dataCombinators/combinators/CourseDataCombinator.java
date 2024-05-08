@@ -1,13 +1,13 @@
-package org.data.datacollector.dataCombinators;
+package org.data.datacollector.dataCombinators.combinators;
 
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.Course;
-import org.data.datacollector.dataExtractors.CourseDataExtractor;
+import org.data.datacollector.dataExtractors.extractors.CourseDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
-import org.data.datacollector.dataExtractors.global.CourseData;
+import org.data.datacollector.dataExtractors.globalDataHolders.CourseData;
 import org.springframework.stereotype.Component;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
@@ -45,7 +45,7 @@ public class CourseDataCombinator extends DataCombinator {
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
         return courseList.stream().peek(course -> employeeNumberAndUserIdList.stream()
-                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(course.getEmployeeNumberOfInstructor()))
+                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(course.getInstructorNumber()))
                 .findFirst()
                 .ifPresentOrElse(
                         (employeeNumberAndUserId) -> course.setInstructorId(employeeNumberAndUserId.getUserId())
@@ -62,7 +62,7 @@ public class CourseDataCombinator extends DataCombinator {
                         .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
                         .map(row -> Course.builder()
                                 .courseDate(dateBuilder(row.getCourseDate()))
-                                .employeeNumberOfInstructor(row.getEmployeeNumberOfInstructor())
+                                .instructorNumber(row.getEmployeeNumberOfInstructor())
                                 .cat2(catBuilder(row.getCatTwo()))
                                 .cat3(catBuilder(row.getCatThree()))
                                 .place(row.getPlace())

@@ -1,4 +1,4 @@
-id;duration;place;examDate;courseDate;activityType;startTime;endTime;timeOfDay;presenceMarked;cat2;cat3;instructorId;examinatorId;trainingId;employeeNumberOfInstructor
+id;duration;place;examDate;courseDate;activityType;startTime;endTime;timeOfDay;presenceMarked;cat2;cat3;instructorId;examinatorId;trainingId;instructorNumber
 1;;;;2023-07-20 12:00:00;CHL;;;;0;1;1;764;;;9403
 2;;;;2021-11-18 12:00:00;CHL;;;;0;1;1;730;;;8985
 3;;;;2024-01-26 12:00:00;CHL;;;;0;1;1;57;;;5712

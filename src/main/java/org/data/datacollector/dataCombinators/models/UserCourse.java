@@ -14,37 +14,18 @@ import lombok.NoArgsConstructor;
 public class UserCourse {
 
     private String id;
+    private String courseId;
 
-    private String oldButeeDate; // Fill -------
+    private String traineeId;
+    private String traineeNumber;
 
-    private String isLongAbsence; //Only for ProficiencyCheck
+    private String instructorId;
+    private String instructorNumber;
 
-    private String isLongAbsenceControl; //Only for ProficiencyCheck
+    private String activityType;
 
-    private String quizEmailSent; //Only for ground courses
+    private String courseDate;
+    private String oldButeeDate;
 
-    private String traineeId; // Fill -------
 
-    private String courseId; // Fill -------
-
-    private String quizHistoryId;
-
-    private String evaluation;
-
-    private String RenewalFormIR49Id;
-
-    private String quizPassed;
-
-    private String quizResent;
-
-    private String isPresent;
-
-    private String moringPresence;
-
-    private String afternoonPresence;
-
-    String quizId;
-
-    // Only for english course (to calculate butees)
-    private String level;
 }

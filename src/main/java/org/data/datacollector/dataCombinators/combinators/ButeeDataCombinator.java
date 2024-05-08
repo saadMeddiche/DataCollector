@@ -1,15 +1,15 @@
-package org.data.datacollector.dataCombinators;
+package org.data.datacollector.dataCombinators.combinators;
 
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.Butee;
-import org.data.datacollector.dataExtractors.ButeeDataExtractor;
+import org.data.datacollector.dataExtractors.extractors.ButeeDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
-import org.data.datacollector.dataExtractors.global.ButeeData;
+import org.data.datacollector.dataExtractors.globalDataHolders.ButeeData;
 import org.springframework.stereotype.Component;
 
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Component

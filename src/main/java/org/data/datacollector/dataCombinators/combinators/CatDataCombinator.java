@@ -1,15 +1,14 @@
-package org.data.datacollector.dataCombinators;
+package org.data.datacollector.dataCombinators.combinators;
 
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.Cat;
-import org.data.datacollector.dataExtractors.CatDataExtractor;
+import org.data.datacollector.dataExtractors.extractors.CatDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCAT2.CatCAT2;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
 import org.springframework.stereotype.Component;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Component

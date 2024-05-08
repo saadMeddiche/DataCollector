@@ -1,5 +1,6 @@
-package org.data.datacollector.dataExtractors;
+package org.data.datacollector.dataExtractors.extractors;
 
+import org.data.datacollector.dataExtractors.DataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.CourseCRM;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.CourseDG;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromELP.CourseELP;

@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractors.global;
+package org.data.datacollector.dataExtractors.globalDataHolders;
 
 import org.data.datacollector.services.ClassHelper;
 

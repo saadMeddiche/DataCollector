@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.data.datacollector.dataExtractors.global.CourseData;
+import org.data.datacollector.dataExtractors.globalDataHolders.CourseData;
 
 import java.util.List;
 @Builder

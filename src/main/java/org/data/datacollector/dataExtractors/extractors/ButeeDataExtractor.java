@@ -1,7 +1,8 @@
-package org.data.datacollector.dataExtractors;
+package org.data.datacollector.dataExtractors.extractors;
 
 import com.poiji.bind.Poiji;
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataExtractors.DataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.ButeeCRM;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.ButeeCtrlEL;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.ButeeDG;

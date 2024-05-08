@@ -45,6 +45,6 @@ public class Course {
     private String trainingId;
 
     // Not Needed in database , only for data collection
-    private String employeeNumberOfInstructor;
+    private String instructorNumber;
 
 }

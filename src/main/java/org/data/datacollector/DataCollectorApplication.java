@@ -1,9 +1,8 @@
 package org.data.datacollector;
 
 import lombok.RequiredArgsConstructor;
-import org.data.datacollector.dataCombinators.*;
+import org.data.datacollector.dataCombinators.combinators.*;
 import org.data.datacollector.dataCombinators.models.*;
-import org.data.datacollector.dataExtractors.CatDataExtractor;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
 import org.springframework.boot.ApplicationRunner;
@@ -11,7 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -91,6 +89,14 @@ public class DataCollectorApplication {
         List<UserCourse> userCourseList = userCourseDataCombinator.getUserCourseList();
         CsvWriter.writeCsv(userCourseList, path.getAbsolutePathOfCsv("userCourse"));
         System.out.println("userCourseList Count :"+ userCourseList.size());
+        System.out.println("userCourseWithoutInstructorId Count :"+ userCourseDataCombinator.userCourseWithoutInstructorIdList.size());
+        System.out.println("userCourseWithoutTraineeId Count :"+ userCourseDataCombinator.userCourseWithoutTraineeIdList.size());
+        System.out.println("userCourseWithoutCourseId Count :"+ userCourseDataCombinator.userCourseWithoutCourseIdList.size());
+
+//        System.out.println("userCourseWithoutInstructorId :");
+//        userCourseDataCombinator.userCourseWithoutInstructorIdList.forEach(
+//                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getInstructorId())
+//        );
     }
 
 }

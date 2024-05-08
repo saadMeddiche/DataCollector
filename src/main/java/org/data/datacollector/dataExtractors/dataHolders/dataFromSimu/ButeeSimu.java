@@ -5,9 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.data.datacollector.dataExtractors.global.ButeeData;
+import org.data.datacollector.dataExtractors.globalDataHolders.ButeeData;
 
-import java.util.Date;
 import java.util.List;
 
 @Builder

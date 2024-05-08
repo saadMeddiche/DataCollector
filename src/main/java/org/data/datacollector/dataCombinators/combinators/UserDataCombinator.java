@@ -1,8 +1,9 @@
-package org.data.datacollector.dataCombinators;
+package org.data.datacollector.dataCombinators.combinators;
 
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.User;
-import org.data.datacollector.dataExtractors.UserDataExtractor;
+import org.data.datacollector.dataExtractors.extractors.UserDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromPERSO.UserPERSO;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUTETPF.UserUTETPF;
 import org.springframework.stereotype.Component;
