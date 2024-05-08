@@ -24,43 +24,23 @@ public class CourseDataCombinator extends DataCombinator {
 
         List<Course> courseList = new ArrayList<>();
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseSimu(), "CHL"));
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseSimu(), "CHL"));
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseDG(), "DG"));
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseDG(), "DG"));
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseSC(), "SC"));
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseSC(), "SC"));
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseCRM(), "HF"));
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseCRM(), "HF"));
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseSS(), "SS"));
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseSS(), "SS"));
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseELP(), "EA"));
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseELP(), "EA"));
 
         // Attach Instructor Id to Course
         List<Course> courseListWithInstructorId =   attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
 
         // Generate Id for Course
         return generateIdForCourse(courseListWithInstructorId);
-    }
-
-    public List<Course> getCourseListWithRepetition(){
-        List<Course> courseList = new ArrayList<>();
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseSimu(), "CHL"));
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseDG(), "DG"));
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseSC(), "SC"));
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseCRM(), "HF"));
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseSS(), "SS"));
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseELP(), "EA"));
-
-        List<Course> courseListWithInstructorId = attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
-
-        return findIdForCourseListWithRepetition(courseListWithInstructorId , getCourseList());
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
@@ -75,46 +55,7 @@ public class CourseDataCombinator extends DataCombinator {
         ).toList();
     }
 
-    private List<Course> findIdForCourseListWithRepetition(List<Course> courseListWithRepetition , List<Course> courseListWithoutRepetition){
-
-        for(Course courseWithRepetition : courseListWithRepetition){
-
-            for(Course courseWithoutRepetition : courseListWithoutRepetition){
-
-               if(
-                       courseWithRepetition.getActivityType().equals(courseWithoutRepetition.getActivityType())
-                        && courseWithRepetition.getCourseDate().equals(courseWithoutRepetition.getCourseDate())
-                        && courseWithRepetition.getEmployeeNumberOfInstructor().equals(courseWithoutRepetition.getEmployeeNumberOfInstructor())
-               ){
-                     courseWithRepetition.setId(courseWithoutRepetition.getId());
-               }
-
-            }
-
-        }
-
-        return courseListWithRepetition;
-    }
-
-    private List<Course> generateCourseListWithRepetition(List<? extends CourseData> courseDataList , String activityType){
-        return courseDataList.stream()
-                .flatMap(courseData -> courseData.getRows().stream()
-                        .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
-                        .map(row -> Course.builder()
-                                .employeeNumber(courseData.getEmployeeNumber())
-                                .courseDate(dateBuilder(row.getCourseDate()))
-                                .employeeNumberOfInstructor(row.getEmployeeNumberOfInstructor())
-                                .cat2(catBuilder(row.getCatTwo()))
-                                .cat3(catBuilder(row.getCatThree()))
-                                .place(row.getPlace())
-                                .presenceMarked(presenceMarkedBuilder("false"))
-                                .activityType(activityType)
-                                .build()
-
-                )).toList();
-    }
-
-    private List<Course> generateCourseListWithoutRepetition(List<? extends CourseData> courseDataList , String activityType){
+    private List<Course> generateCourseList(List<? extends CourseData> courseDataList , String activityType){
 
         List<Course> courseList = courseDataList.stream()
                 .flatMap(courseData -> courseData.getRows().stream()
