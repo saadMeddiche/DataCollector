@@ -97,6 +97,16 @@ public class DataCollectorApplication {
 //        userCourseDataCombinator.userCourseWithoutInstructorIdList.forEach(
 //                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getInstructorId())
 //        );
+
+//        System.out.println("userCourseWithoutTraineeId :");
+//        userCourseDataCombinator.userCourseWithoutTraineeIdList.forEach(
+//                userCourse -> System.out.println(userCourse.getTraineeNumber() + " " + userCourse.getTraineeId())
+//        );
+
+        System.out.println("userCourseWithoutCourseId :");
+        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
+                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
+        );
     }
 
 }

@@ -35,6 +35,8 @@ public class UserCourseDataCombinator extends DataCombinator {
 
         // Generate UserCourseList for CHL and add to userCourseList
         userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseCRM() , "HF"));
+        userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseSimu() , "CHL"));
+        userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseSC() , "SC"));
 
         // Attach Instructor Id and Trainee Id to UserCourse and Course Id to UserCourse
         List<UserCourse> userCourseListWithInstructorId = attachInstructorIdToUserCourse(userCourseList , employeeNumberAndUserIdList);
