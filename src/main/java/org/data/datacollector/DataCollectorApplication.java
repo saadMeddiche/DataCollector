@@ -3,6 +3,7 @@ package org.data.datacollector;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.combinators.*;
 import org.data.datacollector.dataCombinators.models.*;
+import org.data.datacollector.dataWriters.writers.ButeeWriter;
 import org.data.datacollector.dataWriters.writers.CourseWriter;
 import org.data.datacollector.dataWriters.writers.UserCourseWriter;
 import org.data.datacollector.dataWriters.writers.UserWriter;
@@ -19,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DataCollectorApplication {
 
-    private final ButeeDataCombinator buteeDataCombinator;
+    private final ButeeWriter buteeWriter;
 
     private final CourseWriter courseWriter;
 
@@ -39,7 +40,7 @@ public class DataCollectorApplication {
     ApplicationRunner init() {
         return args -> {
             System.out.println("---------------------------------------------------");
-            ButeeProcess();
+            buteeWriter.write();
             System.out.println("\n---------------------------------------------------");
             courseWriter.write();
             System.out.println("\n---------------------------------------------------");
@@ -49,13 +50,6 @@ public class DataCollectorApplication {
             System.out.println("\n---------------------------------------------------");
             userCourseWriter.write();
         };
-    }
-
-    private void ButeeProcess(){
-        List<Butee> buteeList = buteeDataCombinator.getButeeList();
-        CsvWriter.writeCsv(buteeList, path.getAbsolutePathOfCsv("butee"));
-        System.out.println("buteeList Count :"+ buteeList.size());
-        System.out.println("buteeWithoutUserId Count :"+ buteeDataCombinator.buteeWithoutUserIdList.size());
     }
 
     private void CatProcess(){
