@@ -38,6 +38,8 @@ public class UserCourseDataCombinator extends DataCombinator {
         userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseSimu() , "CHL"));
         userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseSC() , "SC"));
         userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseDG() , "DG"));
+        userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseSS() , "SS"));
+        userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseELP() , "EA"));
 
         // Attach Instructor Id and Trainee Id to UserCourse and Course Id to UserCourse
         List<UserCourse> userCourseListWithInstructorId = attachInstructorIdToUserCourse(userCourseList , employeeNumberAndUserIdList);
@@ -51,7 +53,7 @@ public class UserCourseDataCombinator extends DataCombinator {
     private List<UserCourse> generateUserCourseList(List<? extends UserCourseData> userCourseList , String activityType) {
         return userCourseList.stream().flatMap(userCourseData ->
                 userCourseData.getRows().stream()
-                        .filter(row -> row.getValidityEnd() != null || row.getCourseDate() != null)
+                        .filter(row -> row.getValidityEnd() != null && row.getCourseDate() != null)
                         .map(row -> UserCourse.builder()
                             .courseDate(dateBuilder(row.getCourseDate()))
                             .instructorNumber(row.getInstructorNumber())
