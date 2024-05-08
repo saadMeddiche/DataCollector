@@ -16,7 +16,7 @@ public class CourseDataCombinator extends DataCombinator {
 
     private final CourseDataExtractor courseDataExtractor;
 
-    private Long START_ID = 1L;
+    private Long START_ID = 2L; // Why 2 , because I have given 1 to english course
 
     public List<Course> courseWithoutInstructorIdList = new ArrayList<>();
 
@@ -34,7 +34,18 @@ public class CourseDataCombinator extends DataCombinator {
 
         courseList.addAll(generateCourseList(courseDataExtractor.extractCourseSS(), "SS"));
 
-        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseELP(), "EA"));
+        // Add English Course
+        courseList.add(Course.builder()
+                .id("1")
+                .courseDate("")
+                .instructorNumber("")
+                .cat2(catBuilder("0"))
+                .cat3(catBuilder("0"))
+                .place("DF-RH")
+                .presenceMarked(presenceMarkedBuilder("false"))
+                .activityType("EA")
+                .build()
+        );
 
         // Attach Instructor Id to Course
         List<Course> courseListWithInstructorId =   attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());

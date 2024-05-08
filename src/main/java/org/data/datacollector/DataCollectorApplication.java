@@ -103,10 +103,10 @@ public class DataCollectorApplication {
 //                userCourse -> System.out.println(userCourse.getTraineeNumber() + " " + userCourse.getTraineeId())
 //        );
 
-//        System.out.println("\nuserCourseWithoutCourseId :");
-//        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
-//                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
-//        );
+        System.out.println("\nuserCourseWithoutCourseId :");
+        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
+                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
+        );
     }
 
 }

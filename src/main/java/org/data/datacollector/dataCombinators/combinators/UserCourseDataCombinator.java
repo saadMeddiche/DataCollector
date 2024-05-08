@@ -46,8 +46,11 @@ public class UserCourseDataCombinator extends DataCombinator {
         List<UserCourse> userCourseListWithTraineeIdAndInstructorId = attachTraineeIdToUserCourse(userCourseListWithInstructorId , employeeNumberAndUserIdList);
         List<UserCourse> userCourseListWithTraineeIdAndInstructorIdAndCourseId = attachCourseIdToUserCourse(userCourseListWithTraineeIdAndInstructorId , courseDataCombinator.getCourseList());
 
+        // Set Course Id for UserCourse related to English Course
+        List<UserCourse> updatedUserCourseList = setCourseIdForUserCourseRelatedToEnglishCourse(userCourseListWithTraineeIdAndInstructorIdAndCourseId);
+
         // Generate Id for UserCourseList and return
-        return generateIdForUserCourseList(userCourseListWithTraineeIdAndInstructorIdAndCourseId);
+        return generateIdForUserCourseList(updatedUserCourseList);
     }
 
     private List<UserCourse> generateUserCourseList(List<? extends UserCourseData> userCourseList , String activityType) {
@@ -57,7 +60,7 @@ public class UserCourseDataCombinator extends DataCombinator {
                         .map(row -> UserCourse.builder()
                             .courseDate(dateBuilder(row.getCourseDate()))
                             .instructorNumber(row.getInstructorNumber())
-                            .oldButeeDate(row.getValidityEnd())
+                            .oldButeeDate(dateBuilder(row.getValidityEnd()))
                             .activityType(activityType)
                             .traineeNumber(userCourseData.getEmployeeNumber())
                             .build()
@@ -107,6 +110,14 @@ public class UserCourseDataCombinator extends DataCombinator {
 
     private List<UserCourse> generateIdForUserCourseList(List<UserCourse> userCourseList){
         return userCourseList.stream().peek(userCourse -> userCourse.setId(String.valueOf(START_ID++))).toList();
+    }
+
+    private List<UserCourse> setCourseIdForUserCourseRelatedToEnglishCourse(List<UserCourse> userCourseList){
+        return userCourseList.stream()
+                .peek(userCourse -> {
+                    if(userCourse.getActivityType().equals("EA")) userCourse.setCourseId("1");
+                })
+                .toList();
     }
 
 
