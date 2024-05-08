@@ -62,7 +62,9 @@ public class CourseDataCombinator extends DataCombinator {
 
         courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseELP(), "EA"));
 
-        return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
+        List<Course> courseListWithInstructorId = attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
+
+        return findIdForCourseListWithRepetition(courseListWithInstructorId , getCourseList());
     }
 
     private List<Course> attachInstructorIdToCourse(List<Course> courseList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
@@ -75,6 +77,27 @@ public class CourseDataCombinator extends DataCombinator {
                         () -> courseWithoutInstructorIdList.add(course)
                 )
         ).toList();
+    }
+
+    private List<Course> findIdForCourseListWithRepetition(List<Course> courseListWithRepetition , List<Course> courseListWithoutRepetition){
+
+        for(Course courseWithRepetition : courseListWithRepetition){
+
+            for(Course courseWithoutRepetition : courseListWithoutRepetition){
+
+               if(
+                       courseWithRepetition.getActivityType().equals(courseWithoutRepetition.getActivityType())
+                        && courseWithRepetition.getCourseDate().equals(courseWithoutRepetition.getCourseDate())
+                        && courseWithRepetition.getEmployeeNumberOfInstructor().equals(courseWithoutRepetition.getEmployeeNumberOfInstructor())
+               ){
+                     courseWithRepetition.setId(courseWithoutRepetition.getId());
+               }
+
+            }
+
+        }
+
+        return courseListWithRepetition;
     }
 
     private List<Course> generateCourseListWithRepetition(List<? extends CourseData> courseDataList , String activityType){
@@ -109,6 +132,7 @@ public class CourseDataCombinator extends DataCombinator {
                                 .presenceMarked(presenceMarkedBuilder("false"))
                                 .activityType(activityType)
                                 .build()
+
                         )).toList();
 
         // Remove Repetition

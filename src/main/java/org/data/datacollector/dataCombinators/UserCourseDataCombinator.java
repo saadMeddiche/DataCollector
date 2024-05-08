@@ -6,6 +6,7 @@ import org.data.datacollector.dataCombinators.models.Course;
 import org.data.datacollector.dataCombinators.models.UserCourse;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,13 +22,33 @@ public class UserCourseDataCombinator {
     private Long START_ID = 1L;
 
     public List<UserCourse> getUserCourseList(){
-        List<Course> courseList = courseDataCombinator.getCourseList();
+        List<Course> courseList = courseDataCombinator.getCourseListWithRepetition();
         List<Butee> buteeList = buteeDataCombinator.getButeeList();
 
-        return generateUserCourseList(courseList, buteeList);
+        List<UserCourse> userCourseList = generateUserCourseList(courseList, buteeList);
+
+        return generateIdForUserCourseList(userCourseList);
     }
 
     private List<UserCourse> generateUserCourseList(List<Course> courseList, List<Butee> buteeList){
-        return List.of();
+        Set<UserCourse> userCourseList =  new HashSet<>();
+
+        courseList.forEach(course -> {
+            buteeList.forEach(butee -> {
+                if(course.getEmployeeNumber().equals(butee.getEmployeeNumber())){
+                    userCourseList.add(UserCourse.builder()
+                            .courseId(course.getId())
+                            .traineeId(butee.getUserId())
+                            .oldButeeDate(butee.getValidityEnd())
+                            .build());
+                }
+            });
+        });
+
+        return userCourseList.stream().toList();
+    }
+
+    private List<UserCourse> generateIdForUserCourseList(List<UserCourse> userCourseList){
+        return userCourseList.stream().peek(userCourse -> userCourse.setId(String.valueOf(START_ID++))).toList();
     }
 }
