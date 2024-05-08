@@ -2,6 +2,7 @@ package org.data.datacollector.dataExtractors.extractors;
 
 import org.data.datacollector.dataExtractors.DataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.UserCourseCRM;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.UserCourseDG;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSC.UserCourseSC;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSimu.UserCourseSimu;
 import org.springframework.stereotype.Component;
@@ -21,5 +22,9 @@ public class UserCourseDataExtractor extends DataExtractor {
 
     public List<UserCourseSC> extractUserCourseSC(){
         return extractData("SC" , UserCourseSC.class);
+    }
+
+    public List<UserCourseDG> extractUserCourseDG(){
+        return extractData("DG" , UserCourseDG.class);
     }
 }
