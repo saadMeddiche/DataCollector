@@ -3,6 +3,7 @@ package org.data.datacollector;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.combinators.*;
 import org.data.datacollector.dataCombinators.models.*;
+import org.data.datacollector.dataWriters.writers.UserCourseWriter;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
 import org.springframework.boot.ApplicationRunner;
@@ -24,7 +25,7 @@ public class DataCollectorApplication {
 
     private final UserDataCombinator userDataCombinator;
 
-    private final UserCourseDataCombinator userCourseDataCombinator;
+    private final UserCourseWriter userCourseWriter;
 
     private final Path path;
 
@@ -44,8 +45,7 @@ public class DataCollectorApplication {
             System.out.println("\n---------------------------------------------------");
             UserProcess();
             System.out.println("\n---------------------------------------------------");
-            UserCourseProcess();
-
+            userCourseWriter.write();
         };
     }
 
@@ -85,28 +85,5 @@ public class DataCollectorApplication {
         System.out.println("userList Count :"+ userList.size());
     }
 
-    private void UserCourseProcess(){
-        List<UserCourse> userCourseList = userCourseDataCombinator.getUserCourseList();
-        CsvWriter.writeCsv(userCourseList, path.getAbsolutePathOfCsv("userCourse"));
-        System.out.println("userCourseList Count :"+ userCourseList.size());
-        System.out.println("userCourseWithoutInstructorId Count :"+ userCourseDataCombinator.userCourseWithoutInstructorIdList.size());
-        System.out.println("userCourseWithoutTraineeId Count :"+ userCourseDataCombinator.userCourseWithoutTraineeIdList.size());
-        System.out.println("userCourseWithoutCourseId Count :"+ userCourseDataCombinator.userCourseWithoutCourseIdList.size());
-
-//        System.out.println("userCourseWithoutInstructorId :");
-//        userCourseDataCombinator.userCourseWithoutInstructorIdList.forEach(
-//                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
-//        );
-
-//        System.out.println("userCourseWithoutTraineeId :");
-//        userCourseDataCombinator.userCourseWithoutTraineeIdList.forEach(
-//                userCourse -> System.out.println(userCourse.getTraineeNumber() + " " + userCourse.getTraineeId())
-//        );
-
-        System.out.println("\nuserCourseWithoutCourseId :");
-        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
-                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
-        );
-    }
 
 }
