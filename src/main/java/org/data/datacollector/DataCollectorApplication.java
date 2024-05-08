@@ -5,6 +5,7 @@ import org.data.datacollector.dataCombinators.combinators.*;
 import org.data.datacollector.dataCombinators.models.*;
 import org.data.datacollector.dataWriters.writers.CourseWriter;
 import org.data.datacollector.dataWriters.writers.UserCourseWriter;
+import org.data.datacollector.dataWriters.writers.UserWriter;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
 import org.springframework.boot.ApplicationRunner;
@@ -24,7 +25,7 @@ public class DataCollectorApplication {
 
     private final CatDataCombinator catDataCombinator;
 
-    private final UserDataCombinator userDataCombinator;
+    private final UserWriter userWriter;
 
     private final UserCourseWriter userCourseWriter;
 
@@ -44,7 +45,7 @@ public class DataCollectorApplication {
             System.out.println("\n---------------------------------------------------");
             CatProcess();
             System.out.println("\n---------------------------------------------------");
-            UserProcess();
+            userWriter.write();
             System.out.println("\n---------------------------------------------------");
             userCourseWriter.write();
         };
@@ -70,11 +71,6 @@ public class DataCollectorApplication {
 //        );
     }
 
-    private void UserProcess(){
-        List<User> userList = userDataCombinator.getUserList();
-        CsvWriter.writeCsv(userList, path.getAbsolutePathOfCsv("user"));
-        System.out.println("userList Count :"+ userList.size());
-    }
 
 
 }
