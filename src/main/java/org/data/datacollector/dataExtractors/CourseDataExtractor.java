@@ -1,7 +1,6 @@
 package org.data.datacollector.dataExtractors;
 
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.CourseCRM;
-import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.CourseCrtlEL;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromDG.CourseDG;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromELP.CourseELP;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSC.CourseSC;
@@ -19,10 +18,6 @@ public class CourseDataExtractor extends DataExtractor {
 
     public List<CourseDG> extractCourseDG(){
         return extractData("DG" , CourseDG.class);
-    }
-
-    public List<CourseCrtlEL> extractCourseCrtlEL(){
-        return extractData("CTRL EL" , CourseCrtlEL.class);
     }
 
     public List<CourseSC> extractCourseSC(){

@@ -28,8 +28,6 @@ public class CourseDataCombinator extends DataCombinator {
 
         courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseDG(), "DG"));
 
-        courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseCrtlEL(), "CEL"));
-
         courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseSC(), "SC"));
 
         courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseCRM(), "HF"));
@@ -51,8 +49,6 @@ public class CourseDataCombinator extends DataCombinator {
         courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseSimu(), "CHL"));
 
         courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseDG(), "DG"));
-
-        courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseCrtlEL(), "CEL"));
 
         courseList.addAll(generateCourseListWithRepetition(courseDataExtractor.extractCourseSC(), "SC"));
 
