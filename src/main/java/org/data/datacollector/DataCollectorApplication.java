@@ -3,6 +3,7 @@ package org.data.datacollector;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.combinators.*;
 import org.data.datacollector.dataCombinators.models.*;
+import org.data.datacollector.dataWriters.writers.CourseWriter;
 import org.data.datacollector.dataWriters.writers.UserCourseWriter;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
@@ -19,7 +20,7 @@ public class DataCollectorApplication {
 
     private final ButeeDataCombinator buteeDataCombinator;
 
-    private final CourseDataCombinator courseDataCombinator;
+    private final CourseWriter courseWriter;
 
     private final CatDataCombinator catDataCombinator;
 
@@ -39,7 +40,7 @@ public class DataCollectorApplication {
             System.out.println("---------------------------------------------------");
             ButeeProcess();
             System.out.println("\n---------------------------------------------------");
-            CourseProcess();
+            courseWriter.write();
             System.out.println("\n---------------------------------------------------");
             CatProcess();
             System.out.println("\n---------------------------------------------------");
@@ -54,16 +55,6 @@ public class DataCollectorApplication {
         CsvWriter.writeCsv(buteeList, path.getAbsolutePathOfCsv("butee"));
         System.out.println("buteeList Count :"+ buteeList.size());
         System.out.println("buteeWithoutUserId Count :"+ buteeDataCombinator.buteeWithoutUserIdList.size());
-    }
-
-    private void CourseProcess(){
-        List<Course> courseList = courseDataCombinator.getCourseList();
-        CsvWriter.writeCsv(courseList, path.getAbsolutePathOfCsv("course"));
-        System.out.println("courseList Count :"+ courseList.size());
-        System.out.println("courseWithoutInstructorId Count :"+ courseDataCombinator.courseWithoutInstructorIdList.size());
-//        courseDataCombinator.courseWithoutInstructorIdList.forEach(
-//                course -> System.out.println(course.getEmployeeNumberOfInstructor() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
-//        );
     }
 
     private void CatProcess(){

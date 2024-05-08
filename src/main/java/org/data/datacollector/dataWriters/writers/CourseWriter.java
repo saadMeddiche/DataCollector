@@ -3,6 +3,7 @@ package org.data.datacollector.dataWriters.writers;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.combinators.CourseDataCombinator;
 import org.data.datacollector.dataCombinators.models.Course;
+import org.data.datacollector.dataWriters.models.CourseResult;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
 import org.springframework.stereotype.Component;
@@ -30,9 +31,9 @@ public class CourseWriter {
 //        );
     }
 
-    private List<Course> mapCourseToCourseResult(List<Course> courseList) {
+    private List<CourseResult> mapCourseToCourseResult(List<Course> courseList) {
         return courseList.stream()
-                .map(course -> Course.builder()
+                .map(course -> CourseResult.builder()
                         .id(course.getId())
                         .courseDate(course.getCourseDate())
                         .activityType(course.getActivityType())
