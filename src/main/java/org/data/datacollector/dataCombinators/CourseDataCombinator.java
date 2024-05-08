@@ -38,7 +38,11 @@ public class CourseDataCombinator extends DataCombinator {
 
         courseList.addAll(generateCourseListWithoutRepetition(courseDataExtractor.extractCourseELP(), "EA"));
 
-        return attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
+        // Attach Instructor Id to Course
+        List<Course> courseListWithInstructorId =   attachInstructorIdToCourse(courseList , courseDataExtractor.extractEmployeeNumberAndUserId());
+
+        // Generate Id for Course
+        return generateIdForCourse(courseListWithInstructorId);
     }
 
     public List<Course> getCourseListWithRepetition(){
@@ -78,6 +82,7 @@ public class CourseDataCombinator extends DataCombinator {
                 .flatMap(courseData -> courseData.getRows().stream()
                         .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
                         .map(row -> Course.builder()
+                                .employeeNumber(courseData.getEmployeeNumber())
                                 .courseDate(dateBuilder(row.getCourseDate()))
                                 .employeeNumberOfInstructor(row.getEmployeeNumberOfInstructor())
                                 .cat2(catBuilder(row.getCatTwo()))
@@ -92,12 +97,28 @@ public class CourseDataCombinator extends DataCombinator {
 
     private List<Course> generateCourseListWithoutRepetition(List<? extends CourseData> courseDataList , String activityType){
 
-        List<Course> courseList = generateCourseListWithRepetition(courseDataList , activityType);
+        List<Course> courseList = courseDataList.stream()
+                .flatMap(courseData -> courseData.getRows().stream()
+                        .filter(row -> row.getCourseDate() != null && !row.getCourseDate().isEmpty())
+                        .map(row -> Course.builder()
+                                .courseDate(dateBuilder(row.getCourseDate()))
+                                .employeeNumberOfInstructor(row.getEmployeeNumberOfInstructor())
+                                .cat2(catBuilder(row.getCatTwo()))
+                                .cat3(catBuilder(row.getCatThree()))
+                                .place(row.getPlace())
+                                .presenceMarked(presenceMarkedBuilder("false"))
+                                .activityType(activityType)
+                                .build()
+                        )).toList();
 
         // Remove Repetition
         Set<Course> courseSet = new HashSet<>(courseList);
 
         return courseSet.stream().toList();
+    }
+
+    private List<Course> generateIdForCourse(List<Course> courseList){
+        return courseList.stream().peek(course -> course.setId(String.valueOf(START_ID++))).toList();
     }
 
     private String catBuilder(String cat){
