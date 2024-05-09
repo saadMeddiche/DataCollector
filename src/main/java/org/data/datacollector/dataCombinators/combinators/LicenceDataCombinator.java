@@ -6,6 +6,7 @@ import org.data.datacollector.dataCombinators.models.Licence;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromIR.LicenceIR;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.extractors.LicenceDataExtractor;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
+@Scope("prototype")
 public class LicenceDataCombinator extends DataCombinator {
 
     private final LicenceDataExtractor licenceDataExtractor;

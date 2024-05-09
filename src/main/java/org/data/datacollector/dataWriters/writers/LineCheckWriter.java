@@ -7,6 +7,7 @@ import org.data.datacollector.dataWriters.models.LineCheckResult;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,6 +21,10 @@ public class LineCheckWriter {
     private final Path path;
 
     private final ModelMapper mapper = new ModelMapper();
+
+    {
+        mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+    }
 
     public void write(){
         List<LineCheck> lineCheckList = lineCheckDataCombinator.getLineCheckList();

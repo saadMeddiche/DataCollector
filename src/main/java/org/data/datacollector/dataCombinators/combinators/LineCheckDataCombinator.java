@@ -6,6 +6,7 @@ import org.data.datacollector.dataCombinators.models.LineCheck;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.CtrlEL;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.extractors.CtrlELDataExtractor;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
+@Scope("prototype")
 public class LineCheckDataCombinator extends DataCombinator {
 
     private final CtrlELDataExtractor ctrlELDataExtractor;
@@ -60,6 +62,6 @@ public class LineCheckDataCombinator extends DataCombinator {
     }
 
     private List<LineCheck> generateIdForLineCheckList(List<LineCheck> lineCheckList){
-        return lineCheckList.stream().peek(lineCheck -> lineCheck.setId(String.valueOf(START_ID++))).toList();
+        return lineCheckList.stream().peek(lineCheck -> lineCheck.setId(String.valueOf(this.START_ID++))).toList();
     }
 }

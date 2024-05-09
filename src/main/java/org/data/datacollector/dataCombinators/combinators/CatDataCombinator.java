@@ -6,6 +6,7 @@ import org.data.datacollector.dataCombinators.models.Cat;
 import org.data.datacollector.dataExtractors.extractors.CatDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCAT2.CatCAT2;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
+@Scope("prototype")
 public class CatDataCombinator extends DataCombinator {
 
     private final CatDataExtractor catDataExtractor;

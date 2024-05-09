@@ -7,6 +7,7 @@ import org.data.datacollector.dataCombinators.models.UserCourse;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.extractors.UserCourseDataExtractor;
 import org.data.datacollector.dataExtractors.globalDataHolders.UserCourseData;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
+@Scope("prototype")
 public class UserCourseDataCombinator extends DataCombinator {
 
     private final UserCourseDataExtractor userCourseDataExtractor;

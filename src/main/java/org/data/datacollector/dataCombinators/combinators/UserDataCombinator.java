@@ -6,12 +6,14 @@ import org.data.datacollector.dataCombinators.models.User;
 import org.data.datacollector.dataExtractors.extractors.UserDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromPERSO.UserPERSO;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUTETPF.UserUTETPF;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
+@Scope("prototype")
 public class UserDataCombinator extends DataCombinator {
 
     private final UserDataExtractor userDataExtractor;
