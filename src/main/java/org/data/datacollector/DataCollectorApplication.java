@@ -29,6 +29,8 @@ public class DataCollectorApplication {
 
     private final LicenceWriter licenceWriter;
 
+    private final LineCheckWriter lineCheckWriter;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -48,6 +50,8 @@ public class DataCollectorApplication {
             userCourseWriter.write();
             System.out.println("\n---------------------------------------------------");
             licenceWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            lineCheckWriter.write();
         };
     }
 
