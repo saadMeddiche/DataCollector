@@ -35,8 +35,7 @@ public class LineCheckDataCombinator extends DataCombinator {
     }
 
     private List<LineCheck> generateLineCheck(List<CtrlEL> ctrlELList){
-
-        List<LineCheck> lineCheckList = ctrlELList.stream().flatMap(
+        return ctrlELList.stream().flatMap(
                 ctrlEL -> ctrlEL.getRows().stream()
                 .filter(row -> row.getStartDate() != null && row.getInstructorNumber() != null)
                 .map(row -> LineCheck.builder()
@@ -45,11 +44,7 @@ public class LineCheckDataCombinator extends DataCombinator {
                     .instructorNumber(row.getInstructorNumber())
                     .build()
                 )
-        ).toList();
-
-        Set<LineCheck> lineCheckSet = new HashSet<>(lineCheckList);
-
-        return new ArrayList<>(lineCheckSet);
+        ).distinct().toList();
     }
 
     private List<LineCheck> attachInstructorIdToLineCheck(List<LineCheck> lineCheckList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
