@@ -37,7 +37,7 @@ public class CatDataCombinator extends DataCombinator {
     private List<Cat> attachPntIdToCat(List<Cat> catList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
         return catList.stream().peek(
             cat -> employeeNumberAndUserIdList.stream()
-            .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(cat.getEmployeeNumberOfPnt()))
+            .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(cat.getPntNumber()))
             .findFirst()
             .ifPresentOrElse(
                     employeeNumberAndUserId -> cat.setPntId(employeeNumberAndUserId.getUserId())
@@ -50,7 +50,7 @@ public class CatDataCombinator extends DataCombinator {
     private List<Cat> attachInstructorIdToCat(List<Cat> catList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
         return catList.stream().peek(
             cat -> employeeNumberAndUserIdList.stream()
-            .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(cat.getEmployeeNumberOfInstructor()))
+            .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(cat.getInstructorNumber()))
             .findFirst()
             .ifPresentOrElse(
                     employeeNumberAndUserId -> cat.setInstructorId(employeeNumberAndUserId.getUserId())
@@ -70,10 +70,10 @@ public class CatDataCombinator extends DataCombinator {
                         .id(String.valueOf(START_ID++))
                         .type("CAT II")
                         .category("FINAL")
-                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .pntNumber(catCAT2.getEmployeeNumberOfPnt())
                         .inst(catCAT2.getCat2FinalInstructorName())
                         .date(dateBuilder(catCAT2.getCat2FinalDate()))
-                        .employeeNumberOfInstructor(catCAT2.getCat2FinalEmployeeNumberOfInstructor())
+                        .instructorNumber(catCAT2.getCat2FinalEmployeeNumberOfInstructor())
                         .build());
 
             if (catCAT2.getCat2TransitionDate() != null && !catCAT2.getCat2TransitionDate().isEmpty())
@@ -81,10 +81,10 @@ public class CatDataCombinator extends DataCombinator {
                         .id(String.valueOf(START_ID++))
                         .type("CAT II")
                         .category("TRANSITION")
-                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .pntNumber(catCAT2.getEmployeeNumberOfPnt())
                         .inst(catCAT2.getCat2TransitionInstructorName())
                         .date(dateBuilder(catCAT2.getCat2TransitionDate()))
-                        .employeeNumberOfInstructor(catCAT2.getCat2TransitionEmployeeNumberOfInstructor())
+                        .instructorNumber(catCAT2.getCat2TransitionEmployeeNumberOfInstructor())
                         .build()
                 );
 
@@ -93,10 +93,10 @@ public class CatDataCombinator extends DataCombinator {
                         .id(String.valueOf(START_ID++))
                         .type("CAT III")
                         .category("FINAL")
-                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .pntNumber(catCAT2.getEmployeeNumberOfPnt())
                         .inst(catCAT2.getCat3FinalInstructorName())
                         .date(dateBuilder(catCAT2.getCat3FinalDate()))
-                        .employeeNumberOfInstructor(catCAT2.getCat3FinalEmployeeNumberOfInstructor())
+                        .instructorNumber(catCAT2.getCat3FinalEmployeeNumberOfInstructor())
                         .build()
                 );
 
@@ -105,10 +105,10 @@ public class CatDataCombinator extends DataCombinator {
                         .id(String.valueOf(START_ID++))
                         .type("CAT III")
                         .category("TRANSITION")
-                        .employeeNumberOfPnt(catCAT2.getEmployeeNumberOfPnt())
+                        .pntNumber(catCAT2.getEmployeeNumberOfPnt())
                         .inst(catCAT2.getCat3TransitionInstructorName())
                         .date(dateBuilder(catCAT2.getCat3TransitionDate()))
-                        .employeeNumberOfInstructor(catCAT2.getCat3TransitionEmployeeNumberOfInstructor())
+                        .instructorNumber(catCAT2.getCat3TransitionEmployeeNumberOfInstructor())
                         .build()
                 );
 

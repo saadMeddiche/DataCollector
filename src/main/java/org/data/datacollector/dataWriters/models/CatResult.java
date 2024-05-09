@@ -1,36 +1,20 @@
-package org.data.datacollector.dataCombinators.models;
+package org.data.datacollector.dataWriters.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cat {
-
+public class CatResult {
     private String id;
-
-    //CAT II ou CAT III
     private String type;
-
-    //FINAL ou Transition
     private String category;
-
     private String inst;
-
     private String date;
-
     private String pntId;
-
-    private String pntNumber;
-
     private String instructorId;
-
-    private String instructorNumber;
-
 }

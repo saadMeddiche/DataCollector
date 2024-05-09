@@ -3,10 +3,7 @@ package org.data.datacollector;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.combinators.*;
 import org.data.datacollector.dataCombinators.models.*;
-import org.data.datacollector.dataWriters.writers.ButeeWriter;
-import org.data.datacollector.dataWriters.writers.CourseWriter;
-import org.data.datacollector.dataWriters.writers.UserCourseWriter;
-import org.data.datacollector.dataWriters.writers.UserWriter;
+import org.data.datacollector.dataWriters.writers.*;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
 import org.springframework.boot.ApplicationRunner;
@@ -24,13 +21,11 @@ public class DataCollectorApplication {
 
     private final CourseWriter courseWriter;
 
-    private final CatDataCombinator catDataCombinator;
+    private final CatWriter catWriter;
 
     private final UserWriter userWriter;
 
     private final UserCourseWriter userCourseWriter;
-
-    private final Path path;
 
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
@@ -44,7 +39,7 @@ public class DataCollectorApplication {
             System.out.println("\n---------------------------------------------------");
             courseWriter.write();
             System.out.println("\n---------------------------------------------------");
-            CatProcess();
+            catWriter.write();
             System.out.println("\n---------------------------------------------------");
             userWriter.write();
             System.out.println("\n---------------------------------------------------");
@@ -52,18 +47,6 @@ public class DataCollectorApplication {
         };
     }
 
-    private void CatProcess(){
-        List<Cat> catList = catDataCombinator.getCatList();
-        CsvWriter.writeCsv(catList, path.getAbsolutePathOfCsv("cat"));
-        System.out.println("catList Count :"+ catList.size());
-        System.out.println("catWithoutInstructorId Count :"+ catDataCombinator.catWithoutInstructorIdList.size());
-        System.out.println("catWithoutPntId Count :"+ catDataCombinator.catWithoutPntIdList.size());
-//        catDataCombinator.catWithoutInstructorIdList.forEach(
-//                cat -> {
-//                    if(cat.getEmployeeNumberOfInstructor() != null) System.out.println(cat.getEmployeeNumberOfInstructor() + " " + cat.getInstructorId());
-//                }
-//        );
-    }
 
 
 

@@ -78,7 +78,7 @@ public class ButeeDataCombinator extends DataCombinator {
     }
     private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
        return buteeList.stream().peek(butee -> employeeNumberAndUserIdList.stream()
-               .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getEmployeeNumber()))
+               .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getUserNumber()))
                .findFirst()
                .ifPresentOrElse(
                        (employeeNumberAndUserId) -> butee.setUserId(employeeNumberAndUserId.getUserId())
@@ -93,7 +93,7 @@ public class ButeeDataCombinator extends DataCombinator {
                 .flatMap(buteeData -> buteeData.getValidityEnds().stream()
                         .map(validityEnd -> Butee.builder()
                                 .id(String.valueOf(START_ID++))
-                                .employeeNumber(buteeData.getEmployeeNumber())
+                                .userNumber(buteeData.getEmployeeNumber())
                                 .jeppesenCode(jeppesenCode)
                                 .validityEnd(dateBuilder(validityEnd))
                                 .build()))
