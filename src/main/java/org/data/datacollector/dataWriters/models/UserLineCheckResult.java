@@ -9,17 +9,19 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FlightResult {
+public class UserLineCheckResult {
 
     // Fields with values
     private String id;
+    private String oldButeeDate;
+    private String traineeId;
     private String lineCheckId;
-    private String dateOfOrigin;
+    private String evaluationId;
 
     // Fields without values
-    private String carrier;
-    private String flightNumber;
-    private String startStation;
-    private String endStation;
-    private String aircraftType;
+    private String isLongAbsence;
+    private String isLongAbsenceControl;
+    private String isPresent;
+    private String moringPresence;
+    private String afternoonPresence;
 }

@@ -33,6 +33,8 @@ public class DataCollectorApplication {
 
     private final FlightWriter flightWriter;
 
+    private final UserLineCheckWriter userLineCheckWriter;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -56,6 +58,8 @@ public class DataCollectorApplication {
             lineCheckWriter.write();
             System.out.println("\n---------------------------------------------------");
             flightWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            userLineCheckWriter.write();
         };
     }
 
