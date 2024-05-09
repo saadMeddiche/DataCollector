@@ -9,7 +9,9 @@ import org.data.datacollector.dataExtractors.extractors.CtrlELDataExtractor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -24,20 +26,30 @@ public class LineCheckDataCombinator extends DataCombinator {
 
     public List<LineCheck> getLineCheckList(){
         List<LineCheck> lineCheckList = generateLineCheck(ctrlELDataExtractor.extractCtrlEL());
-        return attachInstructorIdToLineCheck(lineCheckList , ctrlELDataExtractor.extractEmployeeNumberAndUserId());
+        return generateIdForLineCheckList(
+                attachInstructorIdToLineCheck(
+                        lineCheckList,
+                        ctrlELDataExtractor.extractEmployeeNumberAndUserId()
+                )
+        );
     }
 
     private List<LineCheck> generateLineCheck(List<CtrlEL> ctrlELList){
-        return ctrlELList.stream().flatMap(
+
+        List<LineCheck> lineCheckList = ctrlELList.stream().flatMap(
                 ctrlEL -> ctrlEL.getRows().stream()
                 .filter(row -> row.getStartDate() != null && row.getInstructorNumber() != null)
                 .map(row -> LineCheck.builder()
-                .id(String.valueOf(START_ID++))
-                .dateOfOrigin(dateBuilder(row.getStartDate()))
-                .presenceMarked("1")
-                .instructorNumber(row.getInstructorNumber())
-                .build()
-        )).toList();
+                    .dateOfOrigin(dateBuilder(row.getStartDate()))
+                    .presenceMarked("1")
+                    .instructorNumber(row.getInstructorNumber())
+                    .build()
+                )
+        ).toList();
+
+        Set<LineCheck> lineCheckSet = new HashSet<>(lineCheckList);
+
+        return new ArrayList<>(lineCheckSet);
     }
 
     private List<LineCheck> attachInstructorIdToLineCheck(List<LineCheck> lineCheckList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
@@ -50,5 +62,9 @@ public class LineCheckDataCombinator extends DataCombinator {
                         () -> lineCheckWithoutInstructorIdList.add(lineCheck)
                 )
         ).toList();
+    }
+
+    private List<LineCheck> generateIdForLineCheckList(List<LineCheck> lineCheckList){
+        return lineCheckList.stream().peek(lineCheck -> lineCheck.setId(String.valueOf(START_ID++))).toList();
     }
 }
