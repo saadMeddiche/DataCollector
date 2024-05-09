@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CatResult {
+
+    // Field With Values
     private String id;
     private String type;
     private String category;
