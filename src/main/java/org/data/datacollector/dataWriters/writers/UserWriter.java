@@ -40,6 +40,7 @@ public class UserWriter {
                         .airplaneSpecialty(user.getAirplaneSpecialty())
                         .releaseDate(user.getReleaseDate())
                         .releasedByEmployeeNumber(user.getReleasedByEmployeeNumber())
+                        .isSIE(user.getIsSIE())
                         .build()
                 ).toList();
     }

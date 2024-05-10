@@ -26,4 +26,6 @@ public class User {
 
     private String releaseDate;
     private String releasedByEmployeeNumber;
+
+    private String isSIE;
 }

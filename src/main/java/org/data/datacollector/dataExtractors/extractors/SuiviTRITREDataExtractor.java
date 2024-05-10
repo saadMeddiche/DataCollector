@@ -13,4 +13,11 @@ public class SuiviTRITREDataExtractor extends DataExtractor {
         return extractData("Suivi TRI_TRE" , SuiviTRITRE.class);
     }
 
+    public List<String> extractEmployeeNumberOnlyWithSieDuAndSieAuFull(){
+        return extractSuiviTRITRE().stream()
+                .filter(suiviTRITRE -> suiviTRITRE.getSieDu() != null && suiviTRITRE.getSieAu() != null)
+                .map(SuiviTRITRE::getEmployeeNumber)
+                .toList();
+    }
+
 }

@@ -37,6 +37,8 @@ public class DataCollectorApplication {
 
     private final InstructorNominationWriter instructorNominationWriter;
 
+    private final DacAuthorisationWriter dacAuthorisationWriter;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -64,6 +66,8 @@ public class DataCollectorApplication {
             userLineCheckWriter.write();
             System.out.println("\n---------------------------------------------------");
             instructorNominationWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            dacAuthorisationWriter.write();
 
         };
     }

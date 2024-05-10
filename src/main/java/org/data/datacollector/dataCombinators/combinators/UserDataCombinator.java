@@ -3,6 +3,7 @@ package org.data.datacollector.dataCombinators.combinators;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.User;
+import org.data.datacollector.dataExtractors.extractors.SuiviTRITREDataExtractor;
 import org.data.datacollector.dataExtractors.extractors.UserDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromPERSO.UserPERSO;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromUTETPF.UserUTETPF;
@@ -17,6 +18,8 @@ import java.util.List;
 public class UserDataCombinator extends DataCombinator {
 
     private final UserDataExtractor userDataExtractor;
+
+    private final SuiviTRITREDataExtractor suiviTRITREDataExtractor;
 
     private Long START_ID = 7052L;
 
@@ -49,6 +52,10 @@ public class UserDataCombinator extends DataCombinator {
                         .airplaneSpecialty(userPERSO.getAirplaneSpecialty())
                         .releaseDate(dateBuilder(userPERSO.getReleaseDate()))
                         .releasedByEmployeeNumber(userPERSO.getReleasedByEmployeeNumber())
+                        .isSIE(
+                                suiviTRITREDataExtractor.extractEmployeeNumberOnlyWithSieDuAndSieAuFull()
+                                        .contains(userPERSO.getEmployeeNumber()) ? "1" : "0"
+                        )
                         .build()
                 ).toList();
     }
