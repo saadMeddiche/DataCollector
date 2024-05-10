@@ -35,6 +35,8 @@ public class DataCollectorApplication {
 
     private final UserLineCheckWriter userLineCheckWriter;
 
+    private final InstructorNominationWriter instructorNominationWriter;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -60,6 +62,9 @@ public class DataCollectorApplication {
             flightWriter.write();
             System.out.println("\n---------------------------------------------------");
             userLineCheckWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            instructorNominationWriter.write();
+
         };
     }
 
