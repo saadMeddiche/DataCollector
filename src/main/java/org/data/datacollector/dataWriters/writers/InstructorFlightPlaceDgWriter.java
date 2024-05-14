@@ -1,7 +1,7 @@
 package org.data.datacollector.dataWriters.writers;
 
 import lombok.RequiredArgsConstructor;
-import org.data.datacollector.dataCombinators.combinators.InstructorFlightPlaceDataDGCombinator;
+import org.data.datacollector.dataCombinators.combinators.InstructorFlightPlaceDgCombinator;
 import org.data.datacollector.dataCombinators.models.InstructorFlightPlaceDg;
 import org.data.datacollector.dataWriters.models.InstructorFlightPlaceDgResult;
 import org.data.datacollector.services.CsvWriter;
@@ -14,9 +14,9 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class InstructorFlightPlaceDataDGWriter {
+public class InstructorFlightPlaceDgWriter {
 
-    private final InstructorFlightPlaceDataDGCombinator instructorFlightPlaceDataDGCombinator;
+    private final InstructorFlightPlaceDgCombinator instructorFlightPlaceDgCombinator;
 
     private final Path path;
     private final ModelMapper modelMapper = new ModelMapper();
@@ -27,17 +27,17 @@ public class InstructorFlightPlaceDataDGWriter {
 
     public void write(){
 
-        List<InstructorFlightPlaceDg> instructorFlightPlaceDgList = instructorFlightPlaceDataDGCombinator.getInstructorFlightPlaceDgList();
+        List<InstructorFlightPlaceDg> instructorFlightPlaceDgList = instructorFlightPlaceDgCombinator.getInstructorFlightPlaceDgList();
 
         CsvWriter.writeCsv(
                 mapInstructorFlightPlaceDataDGToInstructorFlightPlaceDataDGResult(instructorFlightPlaceDgList),
-                path.getAbsolutePathOfCsv("instructorFlightPlaceDataDG")
+                path.getAbsolutePathOfCsv("instructorFlightPlaceDg")
         );
 
         System.out.println("instructorFlightPlaceDgList Count :"+ instructorFlightPlaceDgList.size());
-        System.out.println("instructorFlightPlaceDgWithoutInstructorIdList Count :"+ instructorFlightPlaceDataDGCombinator.instructorFlightPlaceDgWithoutInstructorIdList.size());
-        System.out.println("instructorFlightPlaceDgWithoutSieNumberList Count :"+ instructorFlightPlaceDataDGCombinator.instructorFlightPlaceDgWithoutSieNumberList.size());
-        System.out.println("instructorFlightPlaceDgWithoutSieIdList Count :"+ instructorFlightPlaceDataDGCombinator.instructorFlightPlaceDgWithoutSieIdList.size());
+        System.out.println("instructorFlightPlaceDgWithoutInstructorIdList Count :"+ instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutInstructorIdList.size());
+        System.out.println("instructorFlightPlaceDgWithoutSieNumberList Count :"+ instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutSieNumberList.size());
+        System.out.println("instructorFlightPlaceDgWithoutSieIdList Count :"+ instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutSieIdList.size());
     }
 
     private List<InstructorFlightPlaceDgResult> mapInstructorFlightPlaceDataDGToInstructorFlightPlaceDataDGResult(List<InstructorFlightPlaceDg> instructorFlightPlaceDgList) {

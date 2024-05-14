@@ -1,17 +1,11 @@
 package org.data.datacollector;
 
 import lombok.RequiredArgsConstructor;
-import org.data.datacollector.dataCombinators.combinators.*;
-import org.data.datacollector.dataCombinators.models.*;
 import org.data.datacollector.dataWriters.writers.*;
-import org.data.datacollector.services.CsvWriter;
-import org.data.datacollector.services.Path;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import java.util.List;
 
 @SpringBootApplication
 @RequiredArgsConstructor
@@ -41,7 +35,9 @@ public class DataCollectorApplication {
 
     private final InstructorObservationWriter instructorObservationWriter;
 
-    private final InstructorFlightPlaceDataDGWriter instructorFlightPlaceDataDGWriter;
+    private final InstructorSimuPlaceDroiteWriter instructorSimuPlaceDroiteWriter;
+
+    private final InstructorFlightPlaceDgWriter instructorFlightPlaceDgWriter;
 
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
@@ -75,8 +71,9 @@ public class DataCollectorApplication {
             System.out.println("\n---------------------------------------------------");
             instructorObservationWriter.write();
             System.out.println("\n---------------------------------------------------");
-            instructorFlightPlaceDataDGWriter.write();
-
+            instructorSimuPlaceDroiteWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            instructorFlightPlaceDgWriter.write();
         };
     }
 

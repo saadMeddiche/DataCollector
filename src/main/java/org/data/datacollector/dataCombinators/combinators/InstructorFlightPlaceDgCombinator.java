@@ -17,7 +17,7 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @Scope("prototype")
-public class InstructorFlightPlaceDataDGCombinator extends DataCombinator {
+public class InstructorFlightPlaceDgCombinator extends DataCombinator {
 
     private final SuiviTRITREDataExtractor suiviTRITREDataExtractor;
 
@@ -29,30 +29,30 @@ public class InstructorFlightPlaceDataDGCombinator extends DataCombinator {
 
     public final List<InstructorFlightPlaceDg> instructorFlightPlaceDgWithoutSieNumberList = new ArrayList<>();
 
-    public final List<InstructorFlightPlaceDg> instructorFlightPlaceDgWithoutSieIdList=  new ArrayList<>();
+    public final List<InstructorFlightPlaceDg> instructorFlightPlaceDgWithoutSieIdList =  new ArrayList<>();
 
     public List<InstructorFlightPlaceDg> getInstructorFlightPlaceDgList(){
         List<InstructorFlightPlaceDg> instructorFlightPlaceDgList = generateInstructorFlightPlaceDg(suiviTRITREDataExtractor.extractSuiviTRITRE());
         instructorFlightPlaceDgList = attachInstructionIdToInstructorFlightPlaceDgList(
-                instructorFlightPlaceDgList , suiviTRITREDataExtractor.extractEmployeeNumberAndUserId()
+                instructorFlightPlaceDgList, suiviTRITREDataExtractor.extractEmployeeNumberAndUserId()
         );
         instructorFlightPlaceDgList = attachSieNumberToInstructorFlightPlaceDgList(
-                instructorFlightPlaceDgList , listeIPLPNTDataExtractor.extractListeIPLPNT()
+                instructorFlightPlaceDgList, listeIPLPNTDataExtractor.extractListeIPLPNT()
         );
         return attachSieIdToInstructorFlightPlaceDgList(
-                instructorFlightPlaceDgList , suiviTRITREDataExtractor.extractEmployeeNumberAndUserId()
+                instructorFlightPlaceDgList, suiviTRITREDataExtractor.extractEmployeeNumberAndUserId()
         );
     }
 
     private List<InstructorFlightPlaceDg> generateInstructorFlightPlaceDg(List<SuiviTRITRE> suiviTRITREList){
         return suiviTRITREList.stream()
-                .filter(suiviTRITRE -> suiviTRITRE.getDateSimuPlaceDroite() != null && suiviTRITRE.getTreSimuPlaceDroite() != null)
+                .filter(suiviTRITRE -> suiviTRITRE.getDateDG() != null && suiviTRITRE.getSieDG() != null)
                 .map(
                 suiviTRITRE -> InstructorFlightPlaceDg.builder()
                             .id(String.valueOf(START_ID++))
-                            .date(dateBuilder(suiviTRITRE.getDateSimuPlaceDroite()))
+                            .date(dateBuilder(suiviTRITRE.getDateDG()))
                             .instructorNumber(suiviTRITRE.getEmployeeNumber())
-                            .sieName(suiviTRITRE.getTreSimuPlaceDroite())
+                            .sieName(suiviTRITRE.getSieDG())
                         .build()
         ).toList();
     }
