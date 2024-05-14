@@ -3,12 +3,11 @@ package org.data.datacollector.dataCombinators.combinators;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.Butee;
-import org.data.datacollector.dataExtractors.extractors.ButeeDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
+import org.data.datacollector.dataExtractors.extractors.ButeeHistoryDataExtractor;
 import org.data.datacollector.dataExtractors.globalDataHolders.ButeeData;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.List;
 @Scope("prototype")
 public class ButeeDataCombinator extends DataCombinator {
 
-    private final ButeeDataExtractor buteeDataExtractor;
+    private final ButeeHistoryDataExtractor buteeDataExtractor;
 
     private Long START_ID = 1L;
 
@@ -41,7 +40,7 @@ public class ButeeDataCombinator extends DataCombinator {
 
         buteeList.addAll(generateELPButee());
 
-        return attachUserIdToButee(buteeList , buteeDataExtractor.extractEmployeeNumberAndUserId());
+        return attachUserIdToButee(buteeList, buteeDataExtractor.extractEmployeeNumberAndUserId());
     }
 
     // Butee with jeppesenCode = CHL
@@ -78,7 +77,7 @@ public class ButeeDataCombinator extends DataCombinator {
     private List<Butee> generateELPButee(){
         return generateButee(buteeDataExtractor.extractButeeELP(), "EA");
     }
-    private List<Butee> attachUserIdToButee(List<Butee> buteeList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
+    private List<Butee> attachUserIdToButee(List<Butee> buteeList, List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
        return buteeList.stream().peek(butee -> employeeNumberAndUserIdList.stream()
                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getUserNumber()))
                .findFirst()
@@ -92,13 +91,14 @@ public class ButeeDataCombinator extends DataCombinator {
 
     private List<Butee> generateButee(List<? extends ButeeData> buteeDataList, String jeppesenCode) {
         return buteeDataList.stream()
-                .flatMap(buteeData -> buteeData.getValidityEnds().stream()
-                        .map(validityEnd -> Butee.builder()
-                                .id(String.valueOf(START_ID++))
-                                .userNumber(buteeData.getEmployeeNumber())
-                                .jeppesenCode(jeppesenCode)
-                                .validityEnd(dateBuilder(validityEnd))
-                                .build()))
+                .filter(buteeData -> !buteeData.getValidityEnds().isEmpty())
+                .map(buteeData -> Butee.builder()
+                            .id(String.valueOf(START_ID++))
+                            .jeppesenCode(jeppesenCode)
+                            .userNumber(buteeData.getEmployeeNumber())
+                            .validityEnd(dateBuilder(buteeData.getValidityEnds().getLast()))
+                            .build()
+                )
                 .toList();
     }
 

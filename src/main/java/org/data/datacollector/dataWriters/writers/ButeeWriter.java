@@ -6,6 +6,8 @@ import org.data.datacollector.dataCombinators.models.Butee;
 import org.data.datacollector.dataWriters.models.ButeeResult;
 import org.data.datacollector.services.CsvWriter;
 import org.data.datacollector.services.Path;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,6 +19,13 @@ public class ButeeWriter {
     private final ButeeDataCombinator buteeDataCombinator;
 
     private final Path path;
+
+    private final ModelMapper modelMapper = new ModelMapper();
+
+    {
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+    }
+
 
     public void write(){
         List<Butee> buteeList = buteeDataCombinator.getButeeList();
@@ -32,12 +41,6 @@ public class ButeeWriter {
 
     private List<ButeeResult> mapButeeToButeeResult(List<Butee> buteeList) {
         return buteeList.stream()
-                .map(butee -> ButeeResult.builder()
-                        .id(butee.getId())
-                        .jeppesenCode(butee.getJeppesenCode())
-                        .validityEnd(butee.getValidityEnd())
-                        .userId(butee.getUserId())
-                        .build()
-                ).toList();
+                .map(butee -> modelMapper.map(butee, ButeeResult.class)).toList();
     }
 }

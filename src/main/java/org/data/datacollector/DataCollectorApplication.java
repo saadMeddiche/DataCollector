@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 @RequiredArgsConstructor
 public class DataCollectorApplication {
 
-    private final ButeeWriter buteeWriter;
+    private final ButeeHistoryWriter buteeHistoryWriter;
 
     private final CourseWriter courseWriter;
 
@@ -39,6 +39,8 @@ public class DataCollectorApplication {
 
     private final InstructorFlightPlaceDgWriter instructorFlightPlaceDgWriter;
 
+    private final ButeeWriter buteeWriter;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -46,8 +48,12 @@ public class DataCollectorApplication {
     @Bean
     ApplicationRunner init() {
         return args -> {
+
+
             System.out.println("---------------------------------------------------");
             buteeWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            buteeHistoryWriter.write();
             System.out.println("\n---------------------------------------------------");
             courseWriter.write();
             System.out.println("\n---------------------------------------------------");

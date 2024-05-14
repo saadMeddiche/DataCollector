@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Butee {
+public class ButeeHistory {
     private String id;
 
     private String jeppesenCode;

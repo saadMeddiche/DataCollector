@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ButeeDataExtractor extends DataExtractor {
+public class ButeeHistoryDataExtractor extends DataExtractor {
 
     public List<ButeeDG> extractButeeDG(){
         return extractData("DG" , ButeeDG.class);
