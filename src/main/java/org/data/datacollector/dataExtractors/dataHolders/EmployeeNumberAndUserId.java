@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber;
+package org.data.datacollector.dataExtractors.dataHolders;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.AllArgsConstructor;

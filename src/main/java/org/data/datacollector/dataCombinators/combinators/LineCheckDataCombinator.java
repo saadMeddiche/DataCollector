@@ -4,15 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.LineCheck;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.CtrlEL;
-import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
+import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.extractors.CtrlELDataExtractor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Component
 @RequiredArgsConstructor

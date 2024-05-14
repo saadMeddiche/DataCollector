@@ -5,7 +5,7 @@ import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.Cat;
 import org.data.datacollector.dataExtractors.extractors.CatDataExtractor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCAT2.CatCAT2;
-import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
+import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 

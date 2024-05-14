@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractors.dataHolders.dataFromSuiviTRITRE;
+package org.data.datacollector.dataExtractors.dataHolders;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.AllArgsConstructor;
@@ -50,4 +50,22 @@ public class SuiviTRITRE {
 
     @ExcelCellName("AuFI_ATPL")
     private String endDateFIATPL;
+
+    @ExcelCellName("DteHabilitation")
+    private String dateHabilitation;
+
+    @ExcelCellName("SIEHabilitation")
+    private String sieHabilitation;
+
+    @ExcelCellName("DteSimuPlaceDroite")
+    private String dateSimuPlaceDroite;
+
+    @ExcelCellName("TRESimuPlaceDroite")
+    private String treSimuPlaceDroite;
+
+    @ExcelCellName("DteDG")
+    private String dateDG;
+
+    @ExcelCellName("SIEDG")
+    private String sieDG;
 }

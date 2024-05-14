@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.Course;
 import org.data.datacollector.dataExtractors.extractors.CourseDataExtractor;
-import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
+import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.globalDataHolders.CourseData;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;

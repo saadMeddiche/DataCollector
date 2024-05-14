@@ -5,7 +5,7 @@ import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.LineCheck;
 import org.data.datacollector.dataCombinators.models.UserLineCheck;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.CtrlEL;
-import org.data.datacollector.dataExtractors.dataHolders.dataFromUserIdEmployeeNumber.EmployeeNumberAndUserId;
+import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.extractors.CtrlELDataExtractor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
