@@ -41,6 +41,8 @@ public class DataCollectorApplication {
 
     private final InstructorObservationWriter instructorObservationWriter;
 
+    private final InstructorFlightPlaceDataDGWriter instructorFlightPlaceDataDGWriter;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -72,6 +74,8 @@ public class DataCollectorApplication {
             dacAuthorisationWriter.write();
             System.out.println("\n---------------------------------------------------");
             instructorObservationWriter.write();
+            System.out.println("\n---------------------------------------------------");
+            instructorFlightPlaceDataDGWriter.write();
 
         };
     }
