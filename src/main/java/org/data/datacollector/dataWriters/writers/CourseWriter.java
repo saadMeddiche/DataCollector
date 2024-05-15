@@ -27,7 +27,7 @@ public class CourseWriter {
         System.out.println("courseList Count :"+ courseList.size());
         System.out.println("courseWithoutInstructorId Count :"+ courseDataCombinator.courseWithoutInstructorIdList.size());
 //        courseDataCombinator.courseWithoutInstructorIdList.forEach(
-//                course -> System.out.println(course.getEmployeeNumberOfInstructor() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
+//                course -> System.out.println(course.getInstructorNumber() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
 //        );
     }
 
@@ -38,7 +38,6 @@ public class CourseWriter {
                         .courseDate(course.getCourseDate())
                         .activityType(course.getActivityType())
                         .instructorId(course.getInstructorId())
-                        .instructorNumber(course.getInstructorNumber())
                         .place(course.getPlace())
                         .presenceMarked(course.getPresenceMarked())
                         .cat2(course.getCat2())

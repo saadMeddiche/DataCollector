@@ -31,7 +31,7 @@ public class InstructorFlightPlaceDgWriter {
 
         CsvWriter.writeCsv(
                 mapInstructorFlightPlaceDataDGToInstructorFlightPlaceDataDGResult(instructorFlightPlaceDgList),
-                path.getAbsolutePathOfCsv("instructorFlightPlaceDg")
+                path.getAbsolutePathOfCsv("instructor_flight_place_dg")
         );
 
         System.out.println("instructorFlightPlaceDgList Count :"+ instructorFlightPlaceDgList.size());

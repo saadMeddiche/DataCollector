@@ -33,7 +33,7 @@ public class UserLineCheckWriter {
         List<UserLineCheck> userLineCheckList = userLineCheckDataCombinator.getUserLineCheckList();
         CsvWriter.writeCsv(
                 mapUserLineCheckToUserLineCheckResult(userLineCheckList),
-                path.getAbsolutePathOfCsv("userLineCheck")
+                path.getAbsolutePathOfCsv("user_line_check")
         );
 
         System.out.println("userLineCheckList Count :" + userLineCheckList.size());

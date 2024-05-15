@@ -21,6 +21,4 @@ public class LicenceResult {
     // Field Without Values
     private String type;
     private String issueDate;
-    private String chlThatImpactedIrButeeDate;
-    private String chlThatImpactedIrButeeId;
 }

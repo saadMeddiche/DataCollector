@@ -14,13 +14,12 @@ public class UserLineCheckResult {
     // Fields with values
     private String id;
     private String oldButeeDate;
-    private String traineeId;
+    private String employeeId;
     private String lineCheckId;
     private String evaluationId;
 
     // Fields without values
     private String isLongAbsence;
-    private String isLongAbsenceControl;
     private String isPresent;
     private String moringPresence;
     private String afternoonPresence;

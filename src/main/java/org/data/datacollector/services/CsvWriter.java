@@ -53,6 +53,7 @@ public class CsvWriter {
     private static String getFieldNames(Field[] fields) {
         return Stream.of(fields)
                 .map(Field::getName)
+                .map(CsvWriter::replaceCapitalLetterWithUnderscore)
                 .collect(Collectors.joining(separator));
     }
 
@@ -89,5 +90,9 @@ public class CsvWriter {
 
         return field;
 
+    }
+
+    private static String replaceCapitalLetterWithUnderscore(String str) {
+        return str.replaceAll("([A-Z])", "_$1").toLowerCase();
     }
 }

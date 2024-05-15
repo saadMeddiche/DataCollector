@@ -1,4 +1,4 @@
-id;type;date;instructorId;sieId
+id;type;date;instructor_id;sie_id
 1;Habilitation;2019-06-04 12:00:00;684;32
 2;Habilitation;2019-06-25 12:00:00;705;32
 3;Habilitation;2019-05-30 12:00:00;707;32

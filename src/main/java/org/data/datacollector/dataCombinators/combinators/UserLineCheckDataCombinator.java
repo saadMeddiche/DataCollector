@@ -47,7 +47,7 @@ public class UserLineCheckDataCombinator extends DataCombinator {
                 .map(row -> UserLineCheck.builder()
                         .id(String.valueOf(START_ID++))
                         .oldButeeDate(dateBuilder(row.getButeeDate()))
-                        .traineeNumber(ctrlEL.getEmployeeNumber())
+                        .employeeNumber(ctrlEL.getEmployeeNumber())
                         .instructorNumber(row.getInstructorNumber())
                         .dateOfOrigin(dateBuilder(row.getStartDate()))
                         .isLongAbsence("0")
@@ -62,10 +62,10 @@ public class UserLineCheckDataCombinator extends DataCombinator {
 
     private List<UserLineCheck> attachTraineeIdToUserLineCheck(List<UserLineCheck> userLineCheckList , List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
         return userLineCheckList.stream().peek(userLineCheck -> employeeNumberAndUserIdList.stream()
-                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(userLineCheck.getTraineeNumber()))
+                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(userLineCheck.getEmployeeNumber()))
                 .findFirst()
                 .ifPresentOrElse(
-                        employeeNumberAndUserId -> userLineCheck.setTraineeId(employeeNumberAndUserId.getUserId())
+                        employeeNumberAndUserId -> userLineCheck.setEmployeeId(employeeNumberAndUserId.getUserId())
                         ,
                         () -> userLineCheckWithoutTraineeIdList.add(userLineCheck)
                 )

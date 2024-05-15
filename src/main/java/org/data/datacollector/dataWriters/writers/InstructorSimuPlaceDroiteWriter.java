@@ -31,7 +31,7 @@ public class InstructorSimuPlaceDroiteWriter {
 
         CsvWriter.writeCsv(
                 mapInstructorFlightPlaceDataDGToInstructorFlightPlaceDataDGResult(instructorSimuPlaceDroiteList),
-                path.getAbsolutePathOfCsv("instructorSimuPlaceDroite")
+                path.getAbsolutePathOfCsv("instructor_simu_place_droite")
         );
 
         System.out.println("instructorSimuPlaceDroiteList Count :"+ instructorSimuPlaceDroiteList.size());

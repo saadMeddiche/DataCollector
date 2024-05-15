@@ -21,8 +21,6 @@ public class ButeeHistoryResult {
     private String category;
     private String validityStart;
     private String trainingId;
-    private String createdDate;
-    private String lastModifiedDate;
 
 }
 

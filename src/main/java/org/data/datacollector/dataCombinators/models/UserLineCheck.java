@@ -17,8 +17,8 @@ public class UserLineCheck {
 
     private String oldButeeDate;
 
-    private String traineeId;
-    private String traineeNumber;
+    private String employeeId;
+    private String employeeNumber;
 
     private String instructorNumber;
     private String dateOfOrigin;

@@ -23,7 +23,7 @@ public class UserCourseWriter {
 
         CsvWriter.writeCsv(
                 mapUserCourseToUserCourseResult(userCourseList),
-                path.getAbsolutePathOfCsv("userCourse")
+                path.getAbsolutePathOfCsv("user_course")
         );
 
         System.out.println("userCourseList Count :"+ userCourseList.size());
@@ -35,12 +35,12 @@ public class UserCourseWriter {
 //        userCourseDataCombinator.userCourseWithoutInstructorIdList.forEach(
 //                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
 //        );
-
+//
 //        System.out.println("userCourseWithoutTraineeId :");
 //        userCourseDataCombinator.userCourseWithoutTraineeIdList.forEach(
 //                userCourse -> System.out.println(userCourse.getTraineeNumber() + " " + userCourse.getTraineeId())
 //        );
-
+//
 //        System.out.println("\nuserCourseWithoutCourseId :");
 //        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
 //                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
@@ -51,7 +51,7 @@ public class UserCourseWriter {
         return userCourseList.stream()
                 .map(userCourse -> UserCourseResult.builder()
                         .id(userCourse.getId())
-                        .traineeId(userCourse.getTraineeId())
+                        .employeeId(userCourse.getTraineeId())
                         .courseId(userCourse.getCourseId())
                         .oldButeeDate(userCourse.getOldButeeDate())
                         .build())

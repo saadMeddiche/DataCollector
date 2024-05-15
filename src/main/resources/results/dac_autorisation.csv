@@ -1,4 +1,4 @@
-id;type;autorisationNumber;startDate;endDate;userId
+id;type;autorisation_number;start_date;end_date;user_id
 1;TRI;FI-513/21;2021-10-06 12:00:00;2024-03-31 12:00:00;243
 2;TRE;FE-513/21;2021-04-02 12:00:00;2024-03-31 12:00:00;243
 3;FI_ATPL;;2021-10-06 12:00:00;2024-03-31 12:00:00;243

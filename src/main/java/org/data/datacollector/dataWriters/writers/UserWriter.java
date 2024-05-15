@@ -22,7 +22,7 @@ public class UserWriter {
         List<User> userList = userDataCombinator.getUserList();
         CsvWriter.writeCsv(
                 mapUserToUserResult(userList)
-                , path.getAbsolutePathOfCsv("user")
+                , path.getAbsolutePathOfCsv("users")
         );
         System.out.println("userList Count :"+ userList.size());
     }

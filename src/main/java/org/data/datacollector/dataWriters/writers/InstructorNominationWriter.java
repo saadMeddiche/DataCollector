@@ -31,7 +31,7 @@ public class InstructorNominationWriter {
 
         CsvWriter.writeCsv(
                 mapInstructorNominationToInstructorNominationResult(instructorNominationList),
-                path.getAbsolutePathOfCsv("instructorNomination")
+                path.getAbsolutePathOfCsv("instructor_nomination")
         );
 
         System.out.println("instructorNominationList Count :"+ instructorNominationList.size());

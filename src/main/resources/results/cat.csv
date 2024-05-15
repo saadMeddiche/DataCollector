@@ -1,4 +1,4 @@
-id;type;category;inst;date;pntId;instructorId
+id;type;category;inst;date;pnt_id;instructor_id
 1;CAT II;TRANSITION;CHEMSI;2023-03-12 12:00:00;1689;
 2;CAT III;TRANSITION;CHEMSI;2023-03-12 12:00:00;1689;
 3;CAT II;FINAL;BOUAFI;2011-09-14 12:00:00;1704;6985

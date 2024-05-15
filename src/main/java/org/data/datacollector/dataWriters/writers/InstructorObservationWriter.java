@@ -32,7 +32,7 @@ public class InstructorObservationWriter {
         List<InstructorObservation> instructorObservationList = instructorObservationCombinator.getInstructorObservationList();
         CsvWriter.writeCsv(
                 mapInstructorObservationToInstructorObservationResult(instructorObservationList),
-                path.getAbsolutePathOfCsv("instructorObservation")
+                path.getAbsolutePathOfCsv("instructor_observation")
         );
         System.out.println("instructorObservationList Count :"+ instructorObservationList.size());
         System.out.println("instructorObservationWithoutInstructorId Count :"+ instructorObservationCombinator.instructorObservationWithoutInstructorIdList.size());

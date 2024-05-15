@@ -29,7 +29,7 @@ public class CatWriter {
         System.out.println("catWithoutPntId Count :"+ catDataCombinator.catWithoutPntIdList.size());
 //        catDataCombinator.catWithoutInstructorIdList.forEach(
 //                cat -> {
-//                    if(cat.getEmployeeNumberOfInstructor() != null) System.out.println(cat.getEmployeeNumberOfInstructor() + " " + cat.getInstructorId());
+//                    if(cat.getInstructorNumber() != null) System.out.println(cat.getInstructorNumber() + " " + cat.getInstructorId());
 //                }
 //        );
     }

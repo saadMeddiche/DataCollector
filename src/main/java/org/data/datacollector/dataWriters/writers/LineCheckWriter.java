@@ -31,7 +31,7 @@ public class LineCheckWriter {
 
         CsvWriter.writeCsv(
                 mapLineCheckToLineCheckResult(lineCheckList),
-                path.getAbsolutePathOfCsv("lineCheck")
+                path.getAbsolutePathOfCsv("line_check")
         );
 
         System.out.println("lineCheckList Count :"+ lineCheckList.size());

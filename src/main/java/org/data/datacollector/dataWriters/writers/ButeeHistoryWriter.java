@@ -32,7 +32,7 @@ public class ButeeHistoryWriter {
 
         CsvWriter.writeCsv(
                 mapButeeToButeeResult(buteeHistoryList),
-                path.getAbsolutePathOfCsv("buteeHistory")
+                path.getAbsolutePathOfCsv("butee_history")
         );
 
         System.out.println("buteeHistoryList Count :"+ buteeHistoryList.size());

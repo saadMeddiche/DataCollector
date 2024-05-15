@@ -1,4 +1,4 @@
-id;lineCheckId;dateOfOrigin;carrier;flightNumber;startStation;endStation;aircraftType
+id;line_check_id;date_of_origin;carrier;flight_number;start_station;end_station;aircraft_type
 1;1;2022-05-31 12:00:00;;;;;
 2;2;2023-08-05 12:00:00;;;;;
 3;3;2021-07-24 12:00:00;;;;;
