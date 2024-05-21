@@ -26,17 +26,7 @@ public class CourseDataCombinator extends DataCombinator {
 
         List<Course> courseList = new ArrayList<>();
 
-        // Add English Course
-        courseList.add(Course.builder()
-                .courseDate("")
-                .instructorNumber("")
-                .cat2(catBuilder("0"))
-                .cat3(catBuilder("0"))
-                .place("DF-RH")
-                .presenceMarked(presenceMarkedBuilder("false"))
-                .activityType("EA")
-                .build()
-        );
+        courseList.addAll(generateCourseList(courseDataExtractor.extractCourseELP(), "EA"));
 
         courseList.addAll(generateCourseList(courseDataExtractor.extractCourseSimu(), "CHL"));
 

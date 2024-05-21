@@ -45,6 +45,11 @@ public class UserCourseWriter {
 //        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
 //                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
 //        );
+
+        System.out.println("\nuserCourseWithoutCourseIdForEnglish :");
+        userCourseDataCombinator.userCourseWithoutCourseIdForEnglishList.forEach(
+                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
+        );
     }
 
     private List<UserCourseResult> mapUserCourseToUserCourseResult(List<UserCourse> userCourseList) {
