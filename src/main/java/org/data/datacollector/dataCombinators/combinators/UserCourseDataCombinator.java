@@ -103,6 +103,7 @@ public class UserCourseDataCombinator extends DataCombinator {
         return userCourseList.stream().peek(userCourse -> courseList.stream()
                 .filter(course ->
                         Objects.equals(course.getInstructorNumber(), userCourse.getInstructorNumber())
+                                && !course.getActivityType().equals("EA")
                                 && course.getCourseDate().equals(userCourse.getCourseDate())
                                 && course.getActivityType().equals(userCourse.getActivityType())
                 )
@@ -120,11 +121,12 @@ public class UserCourseDataCombinator extends DataCombinator {
     }
 
     private List<UserCourse> setCourseIdForUserCourseRelatedToEnglishCourse(List<UserCourse> userCourseList , List<Course> courseList){
-        return userCourseList.stream().peek(userCourse -> courseList.stream()
+        return userCourseList.stream()
+                .peek(userCourse -> courseList.stream()
                 .filter(course ->
-                                course.getCourseDate() != null
-                                        && course.getCourseDate().equals(userCourse.getCourseDate())
-                                && course.getActivityType().equals("EA")
+                        userCourse.getCourseDate() != null
+                                        && userCourse.getCourseDate().equals(course.getCourseDate())
+                                && userCourse.getActivityType().equals("EA")
                 )
                 .findFirst()
                 .ifPresentOrElse(
