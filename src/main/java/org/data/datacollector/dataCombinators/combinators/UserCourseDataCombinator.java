@@ -45,14 +45,16 @@ public class UserCourseDataCombinator extends DataCombinator {
         userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseDG() , "DG"));
         userCourseList.addAll(generateUserCourseList(userCourseDataExtractor.extractUserCourseSS() , "SS"));
 
+        List<Course> courseList = courseDataCombinator.getCourseList();
+
 
         // Attach Instructor Id and Trainee Id to UserCourse and Course Id to UserCourse
         List<UserCourse> userCourseListWithInstructorId = attachInstructorIdToUserCourse(userCourseList , employeeNumberAndUserIdList);
         List<UserCourse> userCourseListWithTraineeIdAndInstructorId = attachTraineeIdToUserCourse(userCourseListWithInstructorId , employeeNumberAndUserIdList);
-        List<UserCourse> userCourseListWithTraineeIdAndInstructorIdAndCourseId = attachCourseIdToUserCourse(userCourseListWithTraineeIdAndInstructorId , courseDataCombinator.getCourseList());
+        List<UserCourse> userCourseListWithTraineeIdAndInstructorIdAndCourseId = attachCourseIdToUserCourse(userCourseListWithTraineeIdAndInstructorId , courseList);
 
         // Set Course Id for UserCourse related to English Course
-        List<UserCourse> updatedUserCourseList = setCourseIdForUserCourseRelatedToEnglishCourse(userCourseListWithTraineeIdAndInstructorIdAndCourseId , courseDataCombinator.getCourseList());
+        List<UserCourse> updatedUserCourseList = setCourseIdForUserCourseRelatedToEnglishCourse(userCourseListWithTraineeIdAndInstructorIdAndCourseId , courseList);
 
         // Generate Id for UserCourseList and return
         return generateIdForUserCourseList(updatedUserCourseList);
