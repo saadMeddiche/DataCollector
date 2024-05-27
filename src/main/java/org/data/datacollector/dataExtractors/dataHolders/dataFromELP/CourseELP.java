@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractors.dataHolders.dataFromELP;
 
 import com.poiji.annotation.ExcelCellName;
+import com.poiji.annotation.ExcelSheet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ExcelSheet("ELP")
 public class CourseELP extends CourseData {
 
     @ExcelCellName("Mle")

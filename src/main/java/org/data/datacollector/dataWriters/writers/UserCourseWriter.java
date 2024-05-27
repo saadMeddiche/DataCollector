@@ -33,7 +33,7 @@ public class UserCourseWriter {
 
 //        System.out.println("userCourseWithoutInstructorId :");
 //        userCourseDataCombinator.userCourseWithoutInstructorIdList.forEach(
-//                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
+//                userCourse -> System.out.println(userCourse.toString())
 //        );
 //
 //        System.out.println("userCourseWithoutTraineeId :");
@@ -43,12 +43,12 @@ public class UserCourseWriter {
 //
 //        System.out.println("\nuserCourseWithoutCourseId :");
 //        userCourseDataCombinator.userCourseWithoutCourseIdList.forEach(
-//                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
+//                userCourse -> System.out.println(userCourse.toString())
 //        );
-
+//
 //        System.out.println("\nuserCourseWithoutCourseIdForEnglish :");
 //        userCourseDataCombinator.userCourseWithoutCourseIdForEnglishList.forEach(
-//                userCourse -> System.out.println(userCourse.getInstructorNumber() + " " + userCourse.getCourseDate() + " " + userCourse.getActivityType() + " " + userCourse.getCourseId())
+//                userCourse -> System.out.println(userCourse.toString())
 //        );
     }
 

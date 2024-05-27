@@ -38,6 +38,11 @@ public class InstructorFlightPlaceDgWriter {
         System.out.println("instructorFlightPlaceDgWithoutInstructorIdList Count :"+ instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutInstructorIdList.size());
         System.out.println("instructorFlightPlaceDgWithoutSieNumberList Count :"+ instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutSieNumberList.size());
         System.out.println("instructorFlightPlaceDgWithoutSieIdList Count :"+ instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutSieIdList.size());
+
+//        instructorFlightPlaceDgCombinator.instructorFlightPlaceDgWithoutSieNumberList.forEach(
+//                i -> System.out.println(i.toString())
+//        );
+
     }
 
     private List<InstructorFlightPlaceDgResult> mapInstructorFlightPlaceDataDGToInstructorFlightPlaceDataDGResult(List<InstructorFlightPlaceDg> instructorFlightPlaceDgList) {

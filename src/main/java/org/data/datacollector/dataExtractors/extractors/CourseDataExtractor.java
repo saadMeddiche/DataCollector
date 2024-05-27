@@ -14,26 +14,26 @@ import java.util.List;
 @Component
 public class CourseDataExtractor extends DataExtractor {
     public List<CourseSimu> extractCourseSimu(){
-        return extractData("Simu" , CourseSimu.class);
+        return extractData("data" , CourseSimu.class);
     }
 
     public List<CourseDG> extractCourseDG(){
-        return extractData("DG" , CourseDG.class);
+        return extractData("data" , CourseDG.class);
     }
 
     public List<CourseSC> extractCourseSC(){
-        return extractData("SC" , CourseSC.class);
+        return extractData("data" , CourseSC.class);
     }
 
     public List<CourseCRM> extractCourseCRM(){
-        return extractData("CRM" , CourseCRM.class);
+        return extractData("data" , CourseCRM.class);
     }
 
     public List<CourseSS> extractCourseSS(){
-        return extractData("SS" , CourseSS.class);
+        return extractData("data" , CourseSS.class);
     }
 
     public List<CourseELP> extractCourseELP(){
-        return extractData("ELP" , CourseELP.class);
+        return extractData("data" , CourseELP.class);
     }
 }

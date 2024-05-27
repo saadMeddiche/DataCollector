@@ -29,6 +29,10 @@ public class LicenceWriter {
 
         System.out.println("licenceList Count :"+ licenceList.size());
         System.out.println("licenceWithoutUserId Count :"+ licenceDataCombinator.licenceWithoutUserIdList.size());
+
+//        licenceDataCombinator.licenceWithoutUserIdList.forEach(
+//                licence -> System.out.println(licence.toString())
+//        );
     }
 
     public List<LicenceResult> mapLicenceToLicenceResult(List<Licence> licenceList) {

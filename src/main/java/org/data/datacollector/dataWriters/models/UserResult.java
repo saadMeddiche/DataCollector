@@ -53,8 +53,8 @@ public class UserResult {
     private String releasedByEmployeeNumber;
     private String seniority;
     private String seniorityDate;
+    private String status;
     private String tel1;
     private String tel2;
     private String username;
-    private String status;
 }

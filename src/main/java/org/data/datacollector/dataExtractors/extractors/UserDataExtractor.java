@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDataExtractor extends DataExtractor {
 
     public List<UserPERSO> extractUserPERSO(){
-        return extractData("PERSO" , UserPERSO.class);
+        return extractData("data" , UserPERSO.class);
     }
 
     public List<UserUTETPF> extractUserUTETPF(){

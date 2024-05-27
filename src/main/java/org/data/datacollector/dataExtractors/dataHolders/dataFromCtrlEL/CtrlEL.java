@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL;
 
 import com.poiji.annotation.ExcelCellName;
+import com.poiji.annotation.ExcelSheet;
 import lombok.*;
 import org.data.datacollector.services.ClassHelper;
 
@@ -11,6 +12,7 @@ import java.util.stream.IntStream;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ExcelSheet("EL")
 public class CtrlEL {
 
     @ExcelCellName("MATR")

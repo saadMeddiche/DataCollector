@@ -63,7 +63,8 @@ public class UserCourseDataCombinator extends DataCombinator {
     private List<UserCourse> generateUserCourseList(List<? extends UserCourseData> userCourseList , String activityType) {
         return userCourseList.stream().flatMap(userCourseData ->
                 userCourseData.getRows().stream()
-                        .filter(row -> row.getValidityEnd() != null && row.getCourseDate() != null)
+                        .filter(row -> row.getValidityEnd() != null && row.getCourseDate() != null
+                        && !row.getValidityEnd().isEmpty() && !row.getCourseDate().isEmpty())
                         .map(row -> UserCourse.builder()
                             .courseDate(dateBuilder(row.getCourseDate()))
                             .instructorNumber(row.getInstructorNumber())

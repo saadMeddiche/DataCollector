@@ -27,7 +27,7 @@ public class CourseWriter {
         System.out.println("courseList Count :"+ courseList.size());
         System.out.println("courseWithoutInstructorId Count :"+ courseDataCombinator.courseWithoutInstructorIdList.size());
 //        courseDataCombinator.courseWithoutInstructorIdList.forEach(
-//                course -> System.out.println(course.getInstructorNumber() + " " + course.getCourseDate() + " " +course.getActivityType() + " " + course.getInstructorId())
+//                course -> System.out.println(course.toString())
 //        );
     }
 

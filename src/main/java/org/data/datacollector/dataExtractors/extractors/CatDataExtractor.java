@@ -11,6 +11,6 @@ public class CatDataExtractor extends DataExtractor {
 
 
     public List<CatCAT2> extractCatCAT2(){
-        return extractData("CAT2" , CatCAT2.class);
+        return extractData("data" , CatCAT2.class);
     }
 }

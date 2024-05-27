@@ -37,6 +37,10 @@ public class ButeeWriter {
 
         System.out.println("buteeList Count :"+ buteeList.size());
         System.out.println("buteeWithoutUserId Count :"+ buteeDataCombinator.buteeWithoutUserIdList.size());
+
+//        buteeDataCombinator.buteeWithoutUserIdList.forEach(butee ->
+//                System.out.println("butee : " + butee.toString())
+//        );
     }
 
     private List<ButeeResult> mapButeeToButeeResult(List<Butee> buteeList) {

@@ -1,6 +1,7 @@
 package org.data.datacollector.dataExtractors.dataHolders;
 
 import com.poiji.annotation.ExcelCellName;
+import com.poiji.annotation.ExcelSheet;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ExcelSheet("Suivi TRI_TRE")
 public class SuiviTRITRE {
 
     @ExcelCellName("Mle")
