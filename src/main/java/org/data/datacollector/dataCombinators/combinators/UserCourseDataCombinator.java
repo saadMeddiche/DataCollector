@@ -103,9 +103,12 @@ public class UserCourseDataCombinator extends DataCombinator {
     private List<UserCourse> attachCourseIdToUserCourse(List<UserCourse> userCourseList , List<Course> courseList){
         return userCourseList.stream().peek(userCourse -> courseList.stream()
                 .filter(course ->
-                        Objects.equals(course.getInstructorNumber(), userCourse.getInstructorNumber())
+                        Objects.equals(course.getInstructorId(), userCourse.getInstructorId())
+                                && course.getInstructorId() != null
+                                && !course.getInstructorId().isEmpty()
                                 && !course.getActivityType().equals("EA")
                                 && course.getCourseDate().equals(userCourse.getCourseDate())
+                                && !course.getCourseDate().isEmpty()
                                 && course.getActivityType().equals(userCourse.getActivityType())
                 )
                 .findFirst()
