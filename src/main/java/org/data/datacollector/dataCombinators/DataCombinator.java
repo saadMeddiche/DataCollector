@@ -1,5 +1,6 @@
 package org.data.datacollector.dataCombinators;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -15,20 +16,20 @@ public class DataCombinator {
 
         if(stringDate == null || stringDate.isEmpty()) return "";
 
-        Date date;
+        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd 12:00:00");
+
+        String formattedDate = "";
 
         try {
-            date = new Date(stringDate);
-        } catch (Exception e) {
-            System.out.println("Error while parsing date: " + stringDate);
-            return "";
+            Date date = inputFormat.parse(stringDate);
+            formattedDate = outputFormat.format(date);
+        } catch (ParseException e) {
+            System.out.println("Error parsing date: " + stringDate);
         }
 
-        date.setHours(12);
-
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-        return formatter.format(date);
+        return formattedDate;
     }
 
 }

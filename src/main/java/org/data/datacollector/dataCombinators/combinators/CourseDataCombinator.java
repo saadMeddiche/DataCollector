@@ -72,12 +72,10 @@ public class CourseDataCombinator extends DataCombinator {
                                 .activityType(activityType)
                                 .build()
 
-                        )).toList();
+                        )).distinct().toList();
 
-        // Remove Repetition
-        Set<Course> courseSet = new HashSet<>(courseList);
 
-        return courseSet.stream().toList();
+        return courseList;
     }
 
     private List<Course> generateIdForCourse(List<Course> courseList){

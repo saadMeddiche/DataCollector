@@ -1,11 +1,15 @@
 package org.data.datacollector;
 
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromSC.CourseSC;
+import org.data.datacollector.dataExtractors.extractors.CourseDataExtractor;
 import org.data.datacollector.dataWriters.writers.*;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 @SpringBootApplication
 @RequiredArgsConstructor
@@ -40,6 +44,8 @@ public class DataCollectorApplication {
     private final InstructorFlightPlaceDgWriter instructorFlightPlaceDgWriter;
 
     private final ButeeWriter buteeWriter;
+
+    private final CourseDataExtractor courseDataExtractor;
 
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
@@ -78,6 +84,14 @@ public class DataCollectorApplication {
             instructorSimuPlaceDroiteWriter.write();
             System.out.println("\n---------------------------------------------------");
             instructorFlightPlaceDgWriter.write();
+            List<CourseSC> courses =  courseDataExtractor.extractCourseSC();
+//            courses.forEach(
+//                    course -> {
+//                        if(!course.getCourseDate1().isEmpty()){
+//                            System.out.println(course.getCourseDate1());
+//                        }
+//                    }
+//            );
         };
     }
 
