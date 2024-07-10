@@ -10,7 +10,7 @@ import java.util.List;
 public class CtrlELDataExtractor extends DataExtractor {
 
     public List<CtrlEL> extractCtrlEL(){
-        return extractData("data" , CtrlEL.class);
+        return extractData("data2" , CtrlEL.class);
     }
 
 }

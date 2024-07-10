@@ -54,44 +54,36 @@ public class DataCollectorApplication {
     @Bean
     ApplicationRunner init() {
         return args -> {
-            System.out.println("---------------------------------------------------");
-            buteeWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            buteeHistoryWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            courseWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            catWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            userWriter.write();
+//            System.out.println("---------------------------------------------------");
+//            buteeWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            buteeHistoryWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            courseWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            catWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            userWriter.write();
             System.out.println("\n---------------------------------------------------");
             userCourseWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            licenceWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            lineCheckWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            flightWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            userLineCheckWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorNominationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            dacAuthorisationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorObservationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorSimuPlaceDroiteWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorFlightPlaceDgWriter.write();
-            List<CourseSC> courses =  courseDataExtractor.extractCourseSC();
-//            courses.forEach(
-//                    course -> {
-//                        if(!course.getCourseDate1().isEmpty()){
-//                            System.out.println(course.getCourseDate1());
-//                        }
-//                    }
-//            );
+//            System.out.println("\n---------------------------------------------------");
+//            licenceWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            lineCheckWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            flightWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            userLineCheckWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorNominationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            dacAuthorisationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorObservationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorSimuPlaceDroiteWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorFlightPlaceDgWriter.write();
         };
     }
 

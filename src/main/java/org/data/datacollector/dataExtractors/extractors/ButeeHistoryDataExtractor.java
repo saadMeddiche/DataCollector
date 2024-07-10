@@ -16,31 +16,31 @@ import java.util.List;
 public class ButeeHistoryDataExtractor extends DataExtractor {
 
     public List<ButeeDG> extractButeeDG(){
-        return extractData("data" , ButeeDG.class);
+        return extractData("data2" , ButeeDG.class);
     }
 
     public List<ButeeSimu> extractButeeSimu(){
-        return extractData("data" , ButeeSimu.class);
+        return extractData("data2" , ButeeSimu.class);
     }
 
     public List<ButeeSC> extractButeeSC(){
-        return extractData("data" , ButeeSC.class);
+        return extractData("data2" , ButeeSC.class);
     }
 
     public List<ButeeSS> extractButeeSS(){
-        return extractData("data" , ButeeSS.class);
+        return extractData("data2" , ButeeSS.class);
     }
 
     public List<ButeeCtrlEL> extractButeeCtrlEL(){
-        return extractData("data" , ButeeCtrlEL.class);
+        return extractData("data2" , ButeeCtrlEL.class);
     }
 
     public List<ButeeCRM> extractButeeCRM(){
-        return extractData("data" , ButeeCRM.class);
+        return extractData("data2" , ButeeCRM.class);
     }
 
     public List<ButeeELP> extractButeeELP(){
-        return extractData("data" , ButeeELP.class);
+        return extractData("data2" , ButeeELP.class);
     }
 
 }

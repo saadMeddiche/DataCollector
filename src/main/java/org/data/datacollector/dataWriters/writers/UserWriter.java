@@ -40,6 +40,8 @@ public class UserWriter {
                         .airplaneSpecialty(user.getAirplaneSpecialty())
                         .releaseDate(user.getReleaseDate())
                         .releasedByEmployeeNumber(user.getReleasedByEmployeeNumber())
+                        .status("Inactive")
+                        .seniority("1.0")
                         .isSIE(user.getIsSIE())
                         .build()
                 ).toList();

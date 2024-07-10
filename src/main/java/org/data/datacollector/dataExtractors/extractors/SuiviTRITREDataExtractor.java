@@ -10,7 +10,7 @@ import java.util.List;
 public class SuiviTRITREDataExtractor extends DataExtractor {
 
     public List<SuiviTRITRE> extractSuiviTRITRE(){
-        return extractData("data" , SuiviTRITRE.class);
+        return extractData("data2" , SuiviTRITRE.class);
     }
 
     public List<String> extractEmployeeNumberOnlyWithSieDuAndSieAuFull(){

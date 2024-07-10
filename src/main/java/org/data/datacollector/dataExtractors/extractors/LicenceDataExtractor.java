@@ -10,6 +10,6 @@ import java.util.List;
 public class LicenceDataExtractor extends DataExtractor {
 
     public List<LicenceIR> extractLicenceIR() {
-        return extractData("data", LicenceIR.class);
+        return extractData("data2", LicenceIR.class);
     }
 }

@@ -15,26 +15,26 @@ import java.util.List;
 public class UserCourseDataExtractor extends DataExtractor {
 
     public List<UserCourseCRM> extractUserCourseCRM(){
-        return extractData("data" , UserCourseCRM.class);
+        return extractData("data2" , UserCourseCRM.class);
     }
 
     public List<UserCourseSimu> extractUserCourseSimu(){
-        return extractData("data" , UserCourseSimu.class);
+        return extractData("data2" , UserCourseSimu.class);
     }
 
     public List<UserCourseSC> extractUserCourseSC(){
-        return extractData("data" , UserCourseSC.class);
+        return extractData("data2" , UserCourseSC.class);
     }
 
     public List<UserCourseDG> extractUserCourseDG(){
-        return extractData("data" , UserCourseDG.class);
+        return extractData("data2" , UserCourseDG.class);
     }
 
     public List<UserCourseSS> extractUserCourseSS(){
-        return extractData("data" , UserCourseSS.class);
+        return extractData("data2" , UserCourseSS.class);
     }
 
     public List<UserCourseELP> extractUserCourseELP(){
-        return extractData("data" , UserCourseELP.class);
+        return extractData("data2" , UserCourseELP.class);
     }
 }
