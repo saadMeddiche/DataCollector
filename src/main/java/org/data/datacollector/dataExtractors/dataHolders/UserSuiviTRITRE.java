@@ -3,10 +3,11 @@ package org.data.datacollector.dataExtractors.dataHolders;
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;
 import lombok.Getter;
+import org.data.datacollector.dataExtractors.globalDataHolders.UnknownUserData;
 
 @Getter
 @ExcelSheet("Suivi TRI_TRE")
-public class UserSuiviTRITRE {
+public class UserSuiviTRITRE extends UnknownUserData {
 
     @ExcelCellName("Mle")
     private String employeeNumber;
