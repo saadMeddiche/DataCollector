@@ -97,7 +97,7 @@ public class UserCourseDataCombinator extends DataCombinator {
                         ,
                         () -> userCourseWithoutTraineeIdList.add(userCourse)
                 )
-        ).toList();
+        ).filter(userCourse -> userCourse.getTraineeId() != null && !userCourse.getTraineeId().isEmpty()).toList();
     }
 
     private List<UserCourse> attachCourseIdToUserCourse(List<UserCourse> userCourseList , List<Course> courseList){
@@ -117,7 +117,7 @@ public class UserCourseDataCombinator extends DataCombinator {
                         ,
                         () -> userCourseWithoutCourseIdList.add(userCourse)
                 )
-        ).toList();
+        ).filter(userCourse -> userCourse.getCourseId() != null && !userCourse.getCourseId().isEmpty()).toList();
     }
 
     private List<UserCourse> generateIdForUserCourseList(List<UserCourse> userCourseList){

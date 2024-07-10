@@ -86,7 +86,7 @@ public class ButeeDataCombinator extends DataCombinator {
                        ,
                        () -> buteeWithoutUserIdList.add(butee)
                        )
-       ).toList();
+       ).filter(butee -> butee.getUserId() != null && !butee.getUserId().isEmpty()).toList();
     }
 
     private List<Butee> generateButee(List<? extends ButeeData> buteeDataList, String jeppesenCode) {
