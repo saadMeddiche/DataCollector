@@ -59,6 +59,7 @@ public class UserCourseWriter {
                         .employeeId(userCourse.getTraineeId())
                         .courseId(userCourse.getCourseId())
                         .oldButeeDate(userCourse.getOldButeeDate())
+                        .level(userCourse.getLevel())
                         .build())
                 .toList();
     }

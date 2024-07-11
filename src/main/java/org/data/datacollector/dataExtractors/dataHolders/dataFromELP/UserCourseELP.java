@@ -26,6 +26,9 @@ public class UserCourseELP extends UserCourseData {
     @ExcelCellName("Butée")
     private String validityEnd1;
 
+    @ExcelCellName("Level ELP")
+    private String level1;
+
     @Override
     public List<Row> getRows() {
         return getRows(1, this.getClass());

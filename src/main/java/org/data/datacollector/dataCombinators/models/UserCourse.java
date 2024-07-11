@@ -27,5 +27,7 @@ public class UserCourse {
     private String courseDate;
     private String oldButeeDate;
 
+    private String level;
+
 
 }

@@ -71,6 +71,7 @@ public class UserCourseDataCombinator extends DataCombinator {
                             .oldButeeDate(dateBuilder(row.getValidityEnd()))
                             .activityType(activityType)
                             .traineeNumber(userCourseData.getEmployeeNumber())
+                            .level(row.getLevel())
                             .build()
                         )
         ).toList();
@@ -97,7 +98,7 @@ public class UserCourseDataCombinator extends DataCombinator {
                         ,
                         () -> userCourseWithoutTraineeIdList.add(userCourse)
                 )
-        ).filter(userCourse -> userCourse.getTraineeId() != null && !userCourse.getTraineeId().isEmpty()).toList();
+        ).filter(userCourse -> userCourse.getTraineeId() != null && !userCourse.getTraineeId().isEmpty() || userCourse.getActivityType().equals("EA")).toList();
     }
 
     private List<UserCourse> attachCourseIdToUserCourse(List<UserCourse> userCourseList , List<Course> courseList){
@@ -117,7 +118,7 @@ public class UserCourseDataCombinator extends DataCombinator {
                         ,
                         () -> userCourseWithoutCourseIdList.add(userCourse)
                 )
-        ).filter(userCourse -> userCourse.getCourseId() != null && !userCourse.getCourseId().isEmpty()).toList();
+        ).filter(userCourse -> userCourse.getCourseId() != null && !userCourse.getCourseId().isEmpty() || userCourse.getActivityType().equals("EA")).toList();
     }
 
     private List<UserCourse> generateIdForUserCourseList(List<UserCourse> userCourseList){

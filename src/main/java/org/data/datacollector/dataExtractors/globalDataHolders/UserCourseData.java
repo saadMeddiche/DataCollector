@@ -21,6 +21,7 @@ public abstract class UserCourseData {
                         .courseDate(ch.getValueFieldByName("courseDate" + i))
                         .instructorNumber(ch.getValueFieldByName("instructorNumber" + i))
                         .validityEnd(ch.getValueFieldByName("validityEnd" + i))
+                        .level(ch.getValueFieldByName("level" + i))
                         .build())
                 .toList();
     }
@@ -34,6 +35,8 @@ public abstract class UserCourseData {
         private String instructorNumber;
 
         private String validityEnd;
+
+        private String level;
 
     }
 }
