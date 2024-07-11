@@ -1,4 +1,4 @@
-package org.data.datacollector.dataCombinators.models;
+package org.data.datacollector.dataWriters.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UnknownUser {
+public class UnknownUserResult {
 
     private String employeeNumber;
 

@@ -12,9 +12,9 @@ public class UserCRM extends UnknownUserData {
     @ExcelCellName("MATR")
     private String employeeNumber;
 
-    @ExcelCellName("PRENOM")
+    @ExcelCellName("FONCTION") // Problem with excel sheet
     private String firstName;
 
-    @ExcelCellName("NOM")
+    @ExcelCellName("NOM")  // Problem with excel sheet
     private String lastName;
 }
