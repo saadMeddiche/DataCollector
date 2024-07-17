@@ -1,7 +1,7 @@
 package org.data.datacollector.dataExtractors.extractors;
 
 import org.data.datacollector.dataExtractors.DataExtractor;
-import org.data.datacollector.dataExtractors.dataHolders.SuiviTRITRE;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromTRITRE.SuiviTRITRE;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -3,6 +3,7 @@ package org.data.datacollector;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromSC.CourseSC;
 import org.data.datacollector.dataExtractors.extractors.CourseDataExtractor;
+import org.data.datacollector.dataExtractors.extractors.DataOfUnknownUsersExtractor;
 import org.data.datacollector.dataWriters.writers.*;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -45,9 +46,9 @@ public class DataCollectorApplication {
 
     private final ButeeWriter buteeWriter;
 
-    private final CourseDataExtractor courseDataExtractor;
-
     private final UnknowUserWriter unknownUserWriter;
+
+    private final DataOfUnknownUsersExtractor dataOfUnknownUsersExtractor;
 
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
@@ -56,39 +57,46 @@ public class DataCollectorApplication {
     @Bean
     ApplicationRunner init() {
         return args -> {
-            System.out.println("---------------------------------------------------");
-            buteeWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            buteeHistoryWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            courseWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            catWriter.write();
-            System.out.println("\n---------------------------------------------------");
+            printData(dataOfUnknownUsersExtractor.extractDataOfUnknownUsers());
+//            System.out.println("---------------------------------------------------");
+//            buteeWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            buteeHistoryWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            courseWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            catWriter.write();
+//            System.out.println("\n---------------------------------------------------");
 //            userWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            userCourseWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            licenceWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            lineCheckWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            flightWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            userLineCheckWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorNominationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            dacAuthorisationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorObservationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorSimuPlaceDroiteWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorFlightPlaceDgWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            unknownUserWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            userCourseWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            licenceWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            lineCheckWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            flightWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            userLineCheckWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorNominationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            dacAuthorisationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorObservationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorSimuPlaceDroiteWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorFlightPlaceDgWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            unknownUserWriter.write();
         };
+    }
+
+    private <O> void printData(List<O> data){
+        data.forEach(
+                System.out::println
+        );
     }
 
 

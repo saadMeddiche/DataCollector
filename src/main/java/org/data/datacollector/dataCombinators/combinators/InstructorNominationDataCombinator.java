@@ -3,7 +3,7 @@ package org.data.datacollector.dataCombinators.combinators;
 import lombok.RequiredArgsConstructor;
 import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.InstructorNomination;
-import org.data.datacollector.dataExtractors.dataHolders.SuiviTRITRE;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromTRITRE.SuiviTRITRE;
 import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.extractors.SuiviTRITREDataExtractor;
 import org.springframework.context.annotation.Scope;

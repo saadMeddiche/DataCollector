@@ -1,7 +1,7 @@
 package org.data.datacollector.dataExtractors.extractors;
 
 import org.data.datacollector.dataExtractors.DataExtractor;
-import org.data.datacollector.dataExtractors.dataHolders.UserSuiviTRITRE;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromTRITRE.UserSuiviTRITRE;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCAT2.UserCAT2;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCRM.UserCRM;
 import org.data.datacollector.dataExtractors.dataHolders.dataFromCtrlEL.UserEL;

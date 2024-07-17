@@ -5,7 +5,7 @@ import org.data.datacollector.dataCombinators.DataCombinator;
 import org.data.datacollector.dataCombinators.models.InstructorObservation;
 import org.data.datacollector.dataExtractors.dataHolders.EmployeeNumberAndUserId;
 import org.data.datacollector.dataExtractors.dataHolders.ListeIPLPNT;
-import org.data.datacollector.dataExtractors.dataHolders.SuiviTRITRE;
+import org.data.datacollector.dataExtractors.dataHolders.dataFromTRITRE.SuiviTRITRE;
 import org.data.datacollector.dataExtractors.extractors.ListeIPLPNTDataExtractor;
 import org.data.datacollector.dataExtractors.extractors.SuiviTRITREDataExtractor;
 import org.springframework.context.annotation.Scope;

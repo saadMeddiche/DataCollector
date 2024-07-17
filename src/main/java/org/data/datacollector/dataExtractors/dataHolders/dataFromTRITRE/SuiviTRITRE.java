@@ -1,4 +1,4 @@
-package org.data.datacollector.dataExtractors.dataHolders;
+package org.data.datacollector.dataExtractors.dataHolders.dataFromTRITRE;
 
 import com.poiji.annotation.ExcelCellName;
 import com.poiji.annotation.ExcelSheet;
