@@ -2,11 +2,9 @@ package org.data.datacollector.dataExtractors.dataHolders;
 
 import com.poiji.annotation.ExcelCellName;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@ToString
-public class DataOfUnknownUser {
+public class DataOfMissedUser {
 
     @ExcelCellName("Matricule")
     private String employeeNumber;
