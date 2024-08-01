@@ -35,11 +35,11 @@ public class ButeeHistoryDataCombinator extends DataCombinator {
 
         buteeHistoryList.addAll(generateSSButee());
 
-        buteeHistoryList.addAll(generateCtrlELButee());
-
         buteeHistoryList.addAll(generateCRMButee());
 
         buteeHistoryList.addAll(generateELPButee());
+
+        buteeHistoryList.addAll(generateCtrlELButee());
 
         return attachUserIdToButee(buteeHistoryList, buteeHistoryDataExtractor.extractEmployeeNumberAndUserId());
     }

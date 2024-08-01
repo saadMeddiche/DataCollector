@@ -34,11 +34,11 @@ public class ButeeDataCombinator extends DataCombinator {
 
         buteeList.addAll(generateSSButee());
 
-        buteeList.addAll(generateCtrlELButee());
-
         buteeList.addAll(generateCRMButee());
 
         buteeList.addAll(generateELPButee());
+
+        buteeList.addAll(generateCtrlELButee());
 
         return attachUserIdToButee(buteeList, buteeDataExtractor.extractEmployeeNumberAndUserId());
     }
@@ -63,11 +63,6 @@ public class ButeeDataCombinator extends DataCombinator {
         return generateButee(buteeDataExtractor.extractButeeSS(), "SS");
     }
 
-    // Butee with jeppesenCode = CEL
-    private List<Butee> generateCtrlELButee(){
-        return generateButee(buteeDataExtractor.extractButeeCtrlEL(), "CEL");
-    }
-
     // Butee with jeppesenCode = CRM
     private List<Butee> generateCRMButee(){
         return generateButee(buteeDataExtractor.extractButeeCRM(), "HF");
@@ -77,6 +72,12 @@ public class ButeeDataCombinator extends DataCombinator {
     private List<Butee> generateELPButee(){
         return generateButee(buteeDataExtractor.extractButeeELP(), "EA");
     }
+
+    // Butee with jeppesenCode = CEL
+    private List<Butee> generateCtrlELButee(){
+        return generateButee(buteeDataExtractor.extractButeeCtrlEL(), "CEL");
+    }
+
     private List<Butee> attachUserIdToButee(List<Butee> buteeList, List<EmployeeNumberAndUserId> employeeNumberAndUserIdList){
        return buteeList.stream().peek(butee -> employeeNumberAndUserIdList.stream()
                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(butee.getUserNumber()))
