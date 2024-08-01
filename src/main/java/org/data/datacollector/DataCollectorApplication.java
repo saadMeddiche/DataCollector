@@ -1,6 +1,7 @@
 package org.data.datacollector;
 
 import lombok.RequiredArgsConstructor;
+import org.data.datacollector.dataGenerator.EmployeeNumberAndFunctionGenerator;
 import org.data.datacollector.dataWriters.writers.*;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -45,6 +46,8 @@ public class DataCollectorApplication {
 
     private final UnknowUserWriter unknownUserWriter;
 
+    private final EmployeeNumberAndFunctionGenerator employeeNumberAndFunctionGenerator;
+
     public static void main(String[] args) {
         SpringApplication.run(DataCollectorApplication.class, args);
     }
@@ -52,36 +55,37 @@ public class DataCollectorApplication {
     @Bean
     ApplicationRunner init() {
         return args -> {
-            System.out.println("---------------------------------------------------");
-            buteeWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            buteeHistoryWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            courseWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            catWriter.write();
+            employeeNumberAndFunctionGenerator.generateChangeSet();
+//            System.out.println("---------------------------------------------------");
+//            buteeWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            buteeHistoryWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            courseWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            catWriter.write();
 //            System.out.println("\n---------------------------------------------------");
 //            userWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            userCourseWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            licenceWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            lineCheckWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            flightWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            userLineCheckWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorNominationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            dacAuthorisationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorObservationWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorSimuPlaceDroiteWriter.write();
-            System.out.println("\n---------------------------------------------------");
-            instructorFlightPlaceDgWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            userCourseWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            licenceWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            lineCheckWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            flightWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            userLineCheckWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorNominationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            dacAuthorisationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorObservationWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorSimuPlaceDroiteWriter.write();
+//            System.out.println("\n---------------------------------------------------");
+//            instructorFlightPlaceDgWriter.write();
 //            System.out.println("\n---------------------------------------------------");
 //            unknownUserWriter.write();
         };
