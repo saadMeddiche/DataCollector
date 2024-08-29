@@ -34,13 +34,14 @@ public class LicenceDataCombinator extends DataCombinator {
                 .validTo(dateBuilder(licenceIR.getValidTo()))
                 .examinerEmployeeNumber(licenceIR.getExaminerEmployeeNumber())
                 .examinerName(licenceIR.getExaminerName())
+                .userNumber(licenceIR.getUserNumber())
                 .build()
         ).toList();
     }
 
     private List<Licence> attachUserIdToLicence(List<Licence> licenceList, List<EmployeeNumberAndUserId> employeeNumberAndUserIdList) {
         return licenceList.stream().peek(licence -> employeeNumberAndUserIdList.stream()
-                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(licence.getExaminerEmployeeNumber()))
+                .filter(employeeNumberAndUserId -> employeeNumberAndUserId.getEmployeeNumber().equals(licence.getUserNumber()))
                 .findFirst()
                 .ifPresentOrElse(
                     employeeNumberAndUserId -> licence.setUserId(employeeNumberAndUserId.getUserId()),

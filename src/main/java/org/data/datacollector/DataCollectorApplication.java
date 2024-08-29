@@ -55,7 +55,7 @@ public class DataCollectorApplication {
     @Bean
     ApplicationRunner init() {
         return args -> {
-            employeeNumberAndFunctionGenerator.generateChangeSet();
+//            employeeNumberAndFunctionGenerator.generateChangeSet();
 //            System.out.println("---------------------------------------------------");
 //            buteeWriter.write();
 //            System.out.println("\n---------------------------------------------------");
@@ -69,7 +69,7 @@ public class DataCollectorApplication {
 //            System.out.println("\n---------------------------------------------------");
 //            userCourseWriter.write();
 //            System.out.println("\n---------------------------------------------------");
-//            licenceWriter.write();
+            licenceWriter.write();
 //            System.out.println("\n---------------------------------------------------");
 //            lineCheckWriter.write();
 //            System.out.println("\n---------------------------------------------------");
